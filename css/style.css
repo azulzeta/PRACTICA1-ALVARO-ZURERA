@@ -1,0 +1,370 @@
+:root { 
+  --rosa: #FF8AB3;        
+  --verde: #42CF8C;       
+  --gris: #EEEEEE;        
+  --blanco: #ffffff;      
+  --negro: #000000;       
+  --gris-oscuro: #999999; 
+}
+
+/* ======== RESETEO ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--blanco);
+  color: var(--negro);
+}
+
+/* ======== NAVBAR ======== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 1px solid var(--gris);
+  background-color: var(--blanco);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav.nav-transparent {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo img {
+  height: 15px;
+  width: auto;
+  display: block;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--negro);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--negro);
+  transition: width 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--rosa);
+  font-weight: 700;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* ======== NAV RIGHT ======== */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.languages a {
+  text-decoration: none;
+  color: var(--negro);
+  margin: 0 5px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.languages a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background-color: var(--negro);
+  transition: width 0.3s ease;
+}
+
+.languages a:hover {
+  color: var(--rosa);
+  font-weight: 700;
+}
+
+.languages a:hover::after {
+  width: 100%;
+}
+
+.newsletter-btn {
+  background-color: var(--blanco);
+  border: 1px solid var(--negro);
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: var(--negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter-btn:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.light-btn {
+    background-color: var(--blanco);
+    border: 1px solid var(--negro);
+    border-radius: 20px;
+    padding:6px 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: var(--negro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-btn i {
+    font-size: 1.3rem;
+}
+
+.light-btn:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+
+/* ======== ICONO BURGER ======== */
+.burger {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--negro);
+}
+
+/* ======== MENÚ MÓVIL ======== */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--blanco);
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 100%;
+  border-top: 1px solid var(--gris);
+  padding: 20px 0;
+  text-align: center;
+  z-index: 900;
+}
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu li {
+  margin: 15px 0;
+}
+
+.mobile-menu a {
+  color: var(--negro);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+/* ======== CONTENIDO ======== */
+body {
+  padding-top: 70px; /* evita que el nav fijo tape el contenido */
+}
+
+/* ======== HERO ======== */
+.hero {
+  width: 100%;
+  height: calc(100vh - 70px); /* resta la altura del nav */
+  overflow: hidden;
+  background-color: var(--gris);
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  max-height: 100vh; /* 🔥 evita que sobresalga del viewport */
+}
+
+/* ======== CONTADOR ======== */
+.countdown {
+  background-color: var(--rosa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 25px 0;
+  color: var(--blanco);
+  text-align: center;
+  margin: 0;
+}
+
+.count-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-item .number {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.count-item .label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .menu {
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+  } 
+
+  .languages a {
+    font-size: 0.8rem;
+  }
+
+  .newsletter-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+
+  .light-btn {
+    padding: 3px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 690px) {
+  .menu {
+    display: none;
+  }
+
+  nav {
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 20px;
+    z-index: 110;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    max-width: calc(100% - 90px);
+  }
+
+  .languages {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .languages a {
+    font-size: 0.8rem;
+  }
+
+  .newsletter-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  .light-btn {
+    width: 45px;
+    height: 29px;
+    font-size: 1rem;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 110;
+  }
+
+  .hero {
+    height: calc(100vh - 70px);
+  }
+
+  .hero img {
+    max-height: calc(100vh - 70px);
+  }
+
+  .countdown {
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .count-item .number {
+    font-size: 1.8rem;
+  }
+}
