@@ -289,8 +289,8 @@ body {
   justify-content: center;
   overflow: hidden;
   padding: 0;
-  margin: 40px 0px 0px 0px;
-  gap: 40px;
+  margin: 30px 0px 0px 0px;
+  gap: 30px;
 }
 
 .category {
@@ -313,6 +313,23 @@ body {
   padding: 0 60px; /* espacio lateral para respirar */
 }
 
+.category {
+  position: relative;
+  overflow: hidden;
+}
+.category::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255,255,255,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.category:hover::before {
+  transform: translateX(0);
+}
+
+
 /* Colores planos (sin degradados) */
 .category.green {
   background-color: var(--verde);
@@ -327,6 +344,7 @@ body {
   justify-content: flex-end; /* texto alineado a la derecha */
   text-align: right;
 }
+
 
 
 
