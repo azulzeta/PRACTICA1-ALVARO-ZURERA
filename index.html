@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>FSTVL - B | INICIO</title>
-        <link href="img/FABICON2.png" rel="icon" type="image/png">
+        <link href="img/favicon.png" rel="icon" type="image/png">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 
@@ -14,68 +14,81 @@
     
 
     <body class="light-theme">
-        <nav>
-            <div class="nav-left">
-                <a href="#" class="logo">
-                    <img src="img/FABICON2.png" alt="Logo del Festival" />
-                </a>
-
-                <ul class="menu">
-                    <li class="menulink"><a href="#">INICIO</a></li>
-                    <li class="menulink"><a href="#">CARTEL</a></li>
-                    <li class="menulink"><a href="#">TICKETS</a></li>
-                    <li class="menulink"><a href="#">SUSCRIPCION</a></li>
-                </ul>
-
-                
-            </div>
-
-            <div class="nav-right">
-                <div class="languages">
-                    <a href="#">ES</a>
-                    <a href="#">CA</a>
-                    <a href="#">EN</a>
+        <header>
+            <nav class="barra">
+                <div class="nav-left">
+                    <a href="#" class="logo">
+                        <img src="img/FABICON2.png" alt="Logo del Festival" />
+                    </a>
+    
+                    <ul class="menu">
+                        <li class="menulink"><a href="#">INICIO</a></li>
+                        <li class="menulink"><a href="#">CARTEL</a></li>
+                        <li class="menulink"><a href="#">TICKETS</a></li>
+                        <li class="menulink"><a href="#">SUSCRIPCION</a></li>
+                    </ul>
+    
+                    
                 </div>
-
-                <button class="newsletter-btn">NEWSLETTER</button>
-
-                <button class="light-btn" aria-label="Cambiar tema">
-                    <i class="fas fa-lightbulb"></i>
-                </button>
-
-
-                <div class="burger">
-                    <i class="fas fa-bars"></i>
+    
+                <div class="nav-right">
+                    <div class="languages">
+                        <a href="">ES</a>
+                        <a href="#">CA</a>
+                        <a href="#">EN</a>
+                    </div>
+    
+                    <button class="newsletter-btn">NEWSLETTER</button>
+    
+                    <button class="light-btn" aria-label="Cambiar tema">
+                        <i class="fas fa-lightbulb"></i>
+                    </button>
+    
+    
+                    <div class="burger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+    
                 </div>
+            </nav>
 
-            </div>
-        </nav>
+        </header>
+
+        
+        <main>
+            <section class="countdown">
+                <div class="count-item">
+                    <span class="number">257</span>
+                    <span class="label">DIAS</span>
+                </div>
+                <div class="count-item">
+                    <span class="number">19</span>
+                    <span class="label">HORAS</span>
+                </div>
+                <div class="count-item">
+                    <span class="number">9</span>
+                    <span class="label">MIN</span>
+                </div>
+                <div class="count-item">
+                    <span class="number">23</span>
+                    <span class="label">SEG</span>
+                </div>
+            </section>
+
+            <section class="cabecero">
+                    <img src="img/NOMBRE.png" alt="Texto FSTVL-B"/>
+            </section>
 
             
+            <section class="hero">
+            
+                <img src="img/público.png" alt="Público del festival" class="hero-bg" />
+                <div class="hero-overlay">
+                    <img src="img/NOMBRE.png" alt="Texto FSTVL-B" class="overlay-img" />
+                </div>
+            </section>
 
-        <section class="countdown">
-            <div class="count-item">
-                <span class="number">257</span>
-                <span class="label">DIAS</span>
-            </div>
-            <div class="count-item">
-                <span class="number">19</span>
-                <span class="label">HORAS</span>
-            </div>
-            <div class="count-item">
-                <span class="number">9</span>
-                <span class="label">MIN</span>
-            </div>
-            <div class="count-item">
-                <span class="number">23</span>
-                <span class="label">SEG</span>
-            </div>
-        </section>
-
-
-        <section class="hero">
-            <img src="img/público.png" alt="Público del festival" />
-        </section>
+        </main>
 
         <section class="categories">
             <div class="category green">BUY TICKETS</div>
@@ -83,5 +96,11 @@
             <div class="category green">TO SIGN UP</div>
             <div class="category pink">MORE INFO</div>
         </section>
+
+        
+    <script src="js/script.js"></script>
+
     </body>
+
+
 </html>

@@ -29,7 +29,7 @@ html, body {
 }
 
 
-nav {
+.barra {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,11 +42,12 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: all 0.4s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-nav.nav-transparent {
+
+.barra.nav-transparent {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
 }
@@ -223,7 +224,52 @@ body {
   margin: 0;
 }
 
+.countdown {
+  background-color: var(--rosa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 0;
+  margin: 0; 
+  color: var(--blanco);
+  text-align: center;
+  width: 100%;
+}
 
+.count-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.count-item .number {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.count-item .label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.cabecero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blanco);
+  overflow: hidden; /* evita desbordes */
+}
+
+.cabecero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
 .hero {
   width: 100%;
@@ -246,36 +292,6 @@ body {
 
 
 
-.countdown {
-  background-color: var(--rosa);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  padding: 0;
-  margin: 0; 
-  color: var(--blanco);
-  text-align: center;
-  width: 100%;
-}
-
-.count-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px 0;
-}
-
-.count-item .number {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.count-item .label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-top: 5px;
-}
 
 
 
@@ -385,7 +401,7 @@ body {
     display: none;
   }
 
-  nav {
+  .barra {
     justify-content: center;
     padding: 0 20px;
     height: 60px;
