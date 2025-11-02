@@ -306,7 +306,7 @@ body {
 
 .category {
   width: 100vw; /* ocupa TODO el ancho de la ventana */
-  height: 17vh; /* alto grande y consistente */
+  height: 15vh; /* alto grande y consistente */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,6 +341,7 @@ body {
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
+
 .category:hover::before {
   transform: translateX(0);
 }
@@ -361,6 +362,113 @@ body {
   text-align: right;
 }
 
+.logo-movimiento { 
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--blanco);
+  padding: 100px 40px 50px 40px;
+}
+
+.video-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+   pointer-events: none; /* Evita que se pueda pinchar */
+  
+}
+
+
+/* Línea negra */
+.linea-negra {
+    height: 15px;
+    background-color: black;
+    margin: 40px 40px 40px;
+}
+
+/* Contenedor de palabras */
+.palabras-container {
+    width: 100%;
+    padding: 0px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+/* Cada línea de palabras */
+.linea {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Alineación por línea */
+.linea-left { justify-content: flex-start; }
+.linea-center { justify-content: center; }
+.linea-right { justify-content: flex-end; }
+.linea-space { justify-content: space-between; }
+
+/* Palabras */
+.palabra {
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--negro);
+    white-space: nowrap;
+    max-width: 100%;        
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    transition: color 0.1s ease, transform 0.25s ease;
+    cursor: pointer;
+}
+
+/* Color base al hacer hover — todas cambian */
+.palabra:hover {
+  transform: scale(1.05);
+}
+
+/* 1ª línea */
+.linea:nth-child(1) .palabra:nth-child(1):hover { color: var(--rosa); }    /* AMAIA */
+.linea:nth-child(1) .palabra:nth-child(2):hover { color: var(--verde); }   /* HOKE */
+.linea:nth-child(1) .palabra:nth-child(3):hover { color: var(--verde); }   /* JUDELINE */
+.linea:nth-child(2) .palabra:nth-child(1):hover { color: var(--rosa); }    /* RALPHIE CHOO */
+.linea:nth-child(3) .palabra:nth-child(1):hover { color: var(--verde); }   /* AMORE */
+.linea:nth-child(3) .palabra:nth-child(2):hover { color: var(--rosa); }    /* BB TRICKZ */
+.linea:nth-child(4) .palabra:nth-child(1):hover { color: var(--rosa); }    /* METRIKA */
+.linea:nth-child(4) .palabra:nth-child(2):hover { color: var(--verde); }   /* DISOBEY */
+.linea:nth-child(4) .palabra:nth-child(3):hover { color: var(--rosa); }    /* GRECAS */
+.linea:nth-child(5) .palabra:nth-child(1):hover { color: var(--verde); }   /* AGUSFORNITE2008 & STIFFY */
+.linea:nth-child(6) .palabra:nth-child(1):hover { color: var(--rosa); }    /* GRETA */
+.linea:nth-child(6) .palabra:nth-child(2):hover { color: var(--rosa); }    /* L'HAINE */
+.linea:nth-child(7) .palabra:nth-child(1):hover { color: var(--verde); }   /* LABLACKIE */
+.linea:nth-child(7) .palabra:nth-child(2):hover { color: var(--rosa); }    /* JOHN TALABOT */
+.linea:nth-child(8) .palabra:nth-child(1):hover { color: var(--rosa); }    /* MERITXELL DE SOTO */
+.linea:nth-child(8) .palabra:nth-child(2):hover { color: var(--verde); }   /* MVRK */
+.linea:nth-child(9) .palabra:nth-child(1):hover { color: var(--verde); }   /* Flor */
+.linea:nth-child(9) .palabra:nth-child(2):hover { color: var(--rosa); }    /* NUSAR3000 */
+.linea:nth-child(9) .palabra:nth-child(3):hover { color: var(--verde); }   /* ROJUU */
+.linea:nth-child(10) .palabra:nth-child(1):hover { color: var(--rosa); }   /* STICKY M.A. */
+.linea:nth-child(11) .palabra:nth-child(1):hover { color: var(--verde); }  /* AZULEJA */
+.linea:nth-child(11) .palabra:nth-child(2):hover { color: var(--rosa); }   /* ALIZZZ */
+.linea:nth-child(12) .palabra:nth-child(1):hover { color: var(--rosa); }   /* OUINETA */
+.linea:nth-child(12) .palabra:nth-child(2):hover { color: var(--verde); }  /* BARRY B */
+.linea:nth-child(13) .palabra:nth-child(1):hover { color: var(--verde); }  /* CALA VENTO */
+.linea:nth-child(13) .palabra:nth-child(2):hover { color: var(--rosa); }   /* EL BUGG */
+.linea:nth-child(13) .palabra:nth-child(3):hover { color: var(--verde); }  /* CARIÑO */
+.linea:nth-child(14) .palabra:nth-child(1):hover { color: var(--rosa); }   /* VERUSHKA */
+.linea:nth-child(15) .palabra:nth-child(1):hover { color: var(--verde); }  /* JOKKOO COLLECTIVE */
+.linea:nth-child(16) .palabra:nth-child(1):hover { color: var(--rosa); }   /* MARIA JAUME */
+.linea:nth-child(17) .palabra:nth-child(1):hover { color: var(--rosa); }   /* PARKINEOS */
+.linea:nth-child(17) .palabra:nth-child(2):hover { color: var(--verde); }  /* MAINLINE CLUB */
+.linea:nth-child(18) .palabra:nth-child(1):hover { color: var(--rosa); }   /* DILLOM */
+.linea:nth-child(19) .palabra:nth-child(1):hover { color: var(--verde); }  /* REMEI DE CA LA FRESCA */
+.linea:nth-child(20) .palabra:nth-child(1):hover { color: var(--rosa); }   /* TEO LUCADAMO */
+.linea:nth-child(21) .palabra:nth-child(1):hover { color: var(--verde); }  /* EL PETIT DE CAL ERIL */
+.linea:nth-child(22) .palabra:nth-child(1):hover { color: var(--rosa); }   /* MUJERES */
+
+
+
+
 
 
 
@@ -379,7 +487,7 @@ body {
   }
 
   .languages a {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .newsletter-btn {
@@ -390,6 +498,25 @@ body {
   .light-btn {
     padding: 2px 15px;
     font-size: 0.9rem;
+  }
+
+  .logo-movimiento {
+    padding: 80px 30px 30px; /* Ajusta según tu necesidad */
+  }
+
+  .linea-negra {
+    height: 15px;
+    background-color: black;
+    margin: 40px 30px 40px;
+  }
+
+  .palabras-container {
+      gap: 0px;
+      padding: 0px 30px;
+  }
+
+  .palabras-container .palabra {
+      font-size: 40px;
   }
 }
 
@@ -449,7 +576,34 @@ body {
   .count-item .number {
     font-size: 1.8rem;
   }
+
+  .logo-movimiento {
+    padding: 40px 20px 5px; /* Ajusta según tu necesidad */
+  }
+
+  .linea-negra {
+    height: 7px;
+    background-color: black;
+    margin: 40px 20px 40px;
+  }
+
+  .palabras-container {
+      gap: 5px;
+      padding: 0px 20px;
+  }
+
+  .palabras-container .palabra {
+      font-size: 30px;
+  }
+
+    /* Alternancia izquierda-derecha */
+    .palabras-container .linea:nth-child(odd) { justify-content: flex-start; }
+    .palabras-container .linea:nth-child(even) { justify-content: flex-end; }
 }
+
+
+
+
 
 
 
