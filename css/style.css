@@ -474,6 +474,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* importante para posicionar flechas relativas al contenedor */
   margin-top: 150px;
   padding: 0 20px;
   box-sizing: border-box;
@@ -496,29 +497,27 @@ body {
 }
 
 
-/* animación con movimiento rápido y pausa larga */
-@keyframes stepSlide {
-  0%   { transform: translateX(0); }
-  3%   { transform: translateX(calc(-1 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  12.5% { transform: translateX(calc(-1 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  15.5% { transform: translateX(calc(-2 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  25%  { transform: translateX(calc(-2 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  28%  { transform: translateX(calc(-3 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  37.5% { transform: translateX(calc(-3 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  40.5% { transform: translateX(calc(-4 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  50%  { transform: translateX(calc(-4 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  53%  { transform: translateX(calc(-5 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  62.5% { transform: translateX(calc(-5 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  65.5% { transform: translateX(calc(-6 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  75%  { transform: translateX(calc(-6 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  78%  { transform: translateX(calc(-7 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  87.5% { transform: translateX(calc(-7 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  90.5% { transform: translateX(calc(-8 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
-  100% { transform: translateX(calc(-8 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+.arrow {
+  display: none;
+  position: absolute; /* ahora se posicionan dentro del contenedor */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 15px;
 }
 
 
+.arrow.left { left: 5%; }
+.arrow.right { right: 5%; }
  
+
 
 .boton-tickets {
   display: flex;
@@ -529,9 +528,9 @@ body {
 .buy-btn {
   background-color: var(--gris);
   color: var(--negro);
-  padding: 15px 60px;
+  padding: 15px 80px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 550;
   border: 1px solid var(--negro);
   border-radius: 25px;
   text-decoration: none;
@@ -547,63 +546,76 @@ body {
 
 /* FOOTER */
 .footer {
-  background-color: var(--rosa);
-  border-top: 5px solid var(--verde);
-  padding-top: 40px;
-  color: var(--negro);
-  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 260px; /* altura total del footer */
+  overflow: hidden;
 }
 
-.footer-top {
+/* 🔹 Caja izquierda (logo) */
+.footer-left {
+  width: 30%;                /* más cuadrada */
+  background-color: var(--gris);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
+  height: 100%;
 }
 
 .footer-logo {
-  font-size: 4rem;
-  font-weight: 800;
+  max-width: 60%;
+  height: auto;
 }
 
-.footer-icons {
-  display: flex;
-  gap: 20px;
-  font-size: 1.5rem;
-}
-
-.footer-icons a {
-  color: var(--negro);
-  transition: color 0.3s ease;
-}
-
-.footer-icons a:hover {
-  color: var(--blanco);
-}
-
-.footer-bottom {
-  background-color: var(--verde);
-  margin-top: 30px;
-  padding: 15px 20px;
+/* 🔹 Caja derecha */
+.footer-right {
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 0.85rem;
+  height: 100%;
 }
 
-.footer-bottom a {
-  color: var(--negro);
+/* 🔸 Parte superior (redes sociales) */
+.footer-social {
+  background-color: var(--rosa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 5vw; /* 🔸 separación fluida */
+  flex: 2;  /* 🔸 mayor altura que la parte inferior */
+}
+
+.footer-social a {
+  color: #000;
+  font-size: clamp(3.5rem, 2.5vw, 3.5rem); /* 🔸 se adapta automáticamente */
+  transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+}
+
+/* 🔸 Parte inferior (texto legal) */
+.footer-legal {
+  background-color: var(--verde);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  flex: 1; /* 🔸 menor altura */
+  font-size: clamp(0.7rem, 0.9vw, 0.9rem); /* 🔸 texto legal también adaptable */
+  color: #000;
+}
+
+.footer-legal a {
+  color: #000;
   text-decoration: none;
-  transition: color 0.3s ease;
+  margin-right: 15px;
 }
 
-.footer-bottom a:hover {
-  color: var(--rosa);
-}
-
-.footer-bottom p {
-  margin-top: 10px;
-  font-size: 0.8rem;
+.footer-legal a:hover {
+  text-decoration: underline;
 }
 
 
@@ -657,7 +669,53 @@ body {
   .palabras-container .palabra {
       font-size: 40px;
   }
-  
+
+
+  .boton-tickets {
+      margin: 60px auto;
+    }
+
+  .buy-btn {
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .footer-left {
+    width: 100%;
+    height: 160px; /* logo más visible */
+  }
+
+  .footer-logo {
+    max-width: 150px;
+  }
+
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-social {
+    padding: 25px 10px;
+    gap: 50px;
+  }
+
+  .footer-social a {
+    font-size: 2.8rem; /* iconos algo más pequeños */
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
 
   
 }
@@ -666,90 +724,162 @@ body {
 
 /* TABLET Y MÓVIL */
 @media (max-width: 700px) {
-  .menu {
-    display: none;
-  }
+    .menu {
+        display: none;
+    }
 
-  .barra {
-    justify-content: center;
-    padding: 0 20px;
-    height: 60px;
-  }
+    .barra {
+        justify-content: center;
+        padding: 0 20px;
+        height: 60px;
+    }
 
-  .logo {
-    position: absolute;
-    left: 20px;
-    z-index: 110;
-  }
+    .logo {
+        position: absolute;
+        left: 20px;
+        z-index: 110;
+    }
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
+    .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
 
-  .burger {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    .burger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-  .hero {
-    height: calc(100vh - 60px);
-  }
+    .hero {
+        height: calc(100vh - 60px);
+    }
 
-  .hero img {
-    width: 100%;
-    height: 100%;
-    max-height: calc(100vh - 60px);
-    object-fit: cover;
-  }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        max-height: calc(100vh - 60px);
+        object-fit: cover;
+    }
 
-  .countdown {
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 0;
-    margin: 0;
-  }
+    .countdown {
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 0;
+        margin: 0;
+    }
 
-  .count-item .number {
-    font-size: 1.8rem;
-  }
+    .count-item .number {
+        font-size: 1.8rem;
+    }
 
-  .logo-movimiento {
-    padding: 40px 20px 5px; /* Ajusta según tu necesidad */
-  }
+    .logo-movimiento {
+        padding: 40px 20px 5px; /* Ajusta según tu necesidad */
+    }
 
-  .linea-negra {
-    height: 7px;
-    background-color: black;
-    margin: 40px 20px 40px;
-  }
+    .linea-negra {
+        height: 7px;
+        background-color: black;
+        margin: 40px 20px 40px;
+    }
 
-  .palabras-container {
-      gap: 5px;
-      padding: 0px 20px;
-  }
+    .palabras-container {
+        gap: 5px;
+        padding: 0px 20px;
+    }
 
-  .palabras-container .palabra {
-      font-size: 30px;
-  }
+    .palabras-container .palabra {
+        font-size: 30px;
+    }
 
     /* Alternancia izquierda-derecha */
     .palabras-container .linea:nth-child(odd) { justify-content: flex-start; }
     .palabras-container .linea:nth-child(even) { justify-content: flex-end; }
 
     .categories {
-    gap: 20px;
-    margin: 20px 0px 0px 0px;
-  }
+        gap: 20px;
+        margin: 20px 0px 0px 0px;
+    }
     .category {
-      height: 12vh;
-      font-size: 2.5rem;
+        height: 12vh;
+        font-size: 2.5rem;
+
+    }
+
+    .marquesina {
+      margin: 100px 0px; /* 🔸 acercamos la imagen al top */
+    }
+
+    .marquesina-track {
+      animation: none;
+      justify-content: center;
+      width: 100%;
+      display: flex;
+    }
+
+    .marquesina-track img {
+      display: none;
+      width: 100vw;          /* 🔸 ocupa todo el ancho del viewport */
+      max-width: 100%;       /* 🔸 sin límite */
+      height: auto;          /* 🔸 ajusta la altura automáticamente */
+      max-height: 90vh;      /* 🔸 usa casi toda la pantalla, sin desbordar */
+      object-fit: cover;     /* 🔸 llena mejor el espacio (ligeros recortes laterales si hace falta) */
+      margin: 0 auto;
+      border-radius: 0;
+    }
+
+    .marquesina-track img.active {
+      display: block;
+    }
+
+    .arrow {
+      display: block; /* aparecen solo en móvil/tablet */
+    }
+
+    .boton-tickets {
+      margin: 60px auto;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .buy-btn {
+      width: 50%;              /* 🔸 botón más ancho en pantalla pequeña */
+      padding: 15px 10px;         /* 🔸 más alto, sin exceso lateral */
+      font-size: 1rem;       /* 🔸 texto más grande y legible */
+      border-radius: 35px;
+      text-align: center;
+    }
+
+    .footer-left {
+    height: 130px;
   }
+
+  .footer-logo {
+    max-width: 120px;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+    gap: 35px;
+    padding: 20px 0;
+  }
+
+  .footer-social a {
+    font-size: 2.3rem; /* mejor proporción en móvil */
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    padding: 12px 10px;
+  }
+  
 }
 
 
@@ -758,6 +888,7 @@ body {
 
 
 
+/* ANIMACIONES */
 
 /* Animaciones limpias y sin rebote */
 @keyframes slideInLeft {
@@ -783,7 +914,6 @@ body {
 }
 
 
-
 /* Aparición escalonada */
 .category:nth-child(1) {
   animation-delay: 0.3s;
@@ -796,6 +926,27 @@ body {
 }
 .category:nth-child(4) {
   animation-delay: 2.1s;
+}
+
+/* animación con movimiento rápido y pausa larga */
+@keyframes stepSlide {
+  0%   { transform: translateX(0); }
+  3%   { transform: translateX(calc(-1 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  12.5% { transform: translateX(calc(-1 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  15.5% { transform: translateX(calc(-2 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  25%  { transform: translateX(calc(-2 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  28%  { transform: translateX(calc(-3 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  37.5% { transform: translateX(calc(-3 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  40.5% { transform: translateX(calc(-4 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  50%  { transform: translateX(calc(-4 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  53%  { transform: translateX(calc(-5 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  62.5% { transform: translateX(calc(-5 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  65.5% { transform: translateX(calc(-6 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  75%  { transform: translateX(calc(-6 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  78%  { transform: translateX(calc(-7 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  87.5% { transform: translateX(calc(-7 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  90.5% { transform: translateX(calc(-8 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
+  100% { transform: translateX(calc(-8 * ((100vw - 2 * 20px - 2 * 20px) / 3 + 20px))); }
 }
 
 

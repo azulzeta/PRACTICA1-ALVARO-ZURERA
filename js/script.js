@@ -17,28 +17,37 @@
 
 
 
+const images = document.querySelectorAll('.marquesina-track img');
+  const prev = document.querySelector('.arrow.left');
+  const next = document.querySelector('.arrow.right');
+  let current = 0;
 
-const track = document.getElementById("carousel");
-const images = Array.from(track.children);
-let currentIndex = 0;
-
-// Clonamos las primeras imágenes para mantener el bucle fluido
-images.forEach(img => track.appendChild(img.cloneNode(true)));
-
-function slideNext() {
-  currentIndex++;
-  track.style.transition = "transform 0.5s ease-in-out";
-  track.style.transform = `translateX(-${(currentIndex * 100) / 3}vw)`; // cada paso mueve 1/3 del ancho total visible
-
-  // Cuando llega al final del primer set, resetea instantáneamente sin que se note
-  if (currentIndex >= images.length) {
-    setTimeout(() => {
-      track.style.transition = "none";
-      track.style.transform = "translateX(0)";
-      currentIndex = 0;
-    }, 600); // justo después del movimiento
+  function showImage(index) {
+    images.forEach(img => img.classList.remove('active'));
+    images[index].classList.add('active');
   }
-}
 
-// Avanza cada 5 segundos
-setInterval(slideNext, 5000);
+  function nextImg() {
+    current = (current + 1) % images.length;
+    showImage(current);
+  }
+
+  function prevImg() {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  }
+
+  function setupResponsive() {
+    if (window.innerWidth <= 900) {
+      showImage(current);
+      prev.addEventListener('click', prevImg);
+      next.addEventListener('click', nextImg);
+    } else {
+      images.forEach(img => img.classList.remove('active'));
+      prev.removeEventListener('click', prevImg);
+      next.removeEventListener('click', nextImg);
+    }
+  }
+
+  window.addEventListener('load', setupResponsive);
+  window.addEventListener('resize', setupResponsive);
