@@ -46,16 +46,9 @@ html, body {
   -webkit-backdrop-filter: blur(5px);
   z-index: 1000;
   transition: all 0.4s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-/* .barra.blur {
-  background-color: rgba(255, 255, 255, 0.7); 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-} */
 
 
 .nav-left {
@@ -429,7 +422,7 @@ body {
   width: 100%;
   overflow: hidden;
   background-color: var(--blanco);
-  padding: 50px 40px 50px 40px;
+  padding: 60px 40px;
 }
 
 .video-logo {
@@ -437,7 +430,7 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
-   pointer-events: none; /* Evita que se pueda pinchar */
+  pointer-events: none; /* Evita que se pueda pinchar */
   
 }
 
@@ -612,6 +605,7 @@ body {
   width: 100%;
   height: 260px; /* altura total del footer */
   overflow: hidden;
+  border-top: 2px solid var(--negro);
 }
 
 /* 🔹 Caja izquierda (logo) */
@@ -904,7 +898,7 @@ body {
     }
 
     .boton-tickets {
-      margin: 60px 0px 100px 0px;
+      margin: 60px 0px 80px 0px;
       width: 100%;
       justify-content: center;
     }
@@ -1047,110 +1041,281 @@ body {
 
 
 
-/* ======================
-   CARTELERA
-====================== */
-.cartelera {
+.cartel {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 70px 0;
-}
-
-/* SECCIONES INDIVIDUALES */
-.ubicacion,
-.day1,
-.day2,
-.day3 {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  padding: 30px 60px;
-  color: var(--blanco);
-  border-bottom: 3px solid var(--negro);
-}
-
-.ubicacion {
-  background-color: var(--verde);
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  border-top: 3px solid var(--negro);
-}
-
-/* Día 1, 2, 3 colores */
-.day1 { 
-  background-color: var(--rosa);
-}
-.day2 { background-color: var(--verde); }
-.day3 { background-color: var(--rosa); }
-
-
-/* CONTENIDO INTERNO */
-.cartel-dia {
-  width: 100%;
-  max-width: 1300px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.cartel-dia h3 {
-  font-size: 3rem;
-  font-weight: 900;
-  margin: 0;
-  color: var(--blanco);
-  flex: 1;
-  text-align: left;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
-.cartel-dia p {
-  flex: 5;
-  text-align: right;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.8;
+.cartel h2 {
+  font-size: 4rem;
+  text-align: center;
+  border-top: 3px solid var(--negro);
+  border-bottom: 3px solid var(--negro);
+  letter-spacing: -2px;
+  background-color: var(--gris);
+  padding: 20px 0px;
+}
+
+.cartel .bloque {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 25px 60px;
+  
+}
+
+.cartel .bloque.verde {
+  background-color: var(--verde);
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+}
+
+.cartel .bloque.rosa {
+  background-color: var(--rosa);
+  color: var(--negro);
+  border-bottom: 3px solid var(--negro);
+
+  
+}
+
+.cartel .fecha {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-right: 140px;
+  margin-left: 40px;
+  min-width: 180px;
+  line-height: 1;
+}
+
+.cartel .artistas {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartel .fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  transition: all 0.3s ease;
+}
+
+.cartel .palabra {
+  font-size: 2rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.cartel .palabra::after {
+  content: "•";
+  font-size: 40px;
+  margin: 0px 50px;
+  color: var(--negro);
+  font-weight: 900;
+}
+
+
+.cartel .palabra:hover {
+  transform: scale(1);
   color: var(--blanco);
 }
 
-/* Artistas principales destacados */
-.cartel-dia p strong {
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  font-size: 1.5rem;
-  padding: 2px 6px;
-  border-radius: 4px;
+/* 🔸 Estilos visuales de composición por filas */
+.cartel .bloque .fila-1 { justify-content: flex-start; width: 85%; }
+.cartel .bloque .fila-2 { justify-content: center; width: 90%;}
+.cartel .bloque .fila-3 { justify-content: flex-end; width: 100%;  }
+.cartel .bloque .fila-4 { justify-content: flex-start; width: 75%;  }
+.cartel .bloque .fila-5 { justify-content: center; width: 100%; }
+.cartel .bloque .fila-6 { justify-content: flex-end; width: 95%;  }
+.cartel .bloque .fila-7 { justify-content: center; width: 35%; }
+
+
+.galeria {
+    padding: 0px 40px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cartel-dia {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .cartel-dia h3 {
-    font-size: 1.6rem;
+.galeria h2 {
     text-align: left;
+    font-size: 4rem;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de la galería */
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+
+/* Cada artista */
+.artista {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.artista img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+
+.artista:hover img {
+    filter: blur(2px);
+    transform: scale(1.05);
+}
+
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--blanco);
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    pointer-events: none;
+}
+
+.artista:hover .overlay {
+    opacity: 1;
+}
+
+
+
+
+/* Pantallas menores a 900px */
+@media (max-width: 900px) {
+    .galeria-container {
+        grid-template-columns: repeat(4, 1fr); /* 2 columnas */
+        gap: 1rem; /* espacio entre imágenes */
+    }
+
+    .galeria h2 {
+    text-align: left;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+}
+
+/* Pantallas menores a 700px */
+@media (max-width: 700px) {
+    
+    .galeria-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+
+    }
+
+    .galeria h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 🔹 Versión intermedia (tablets, ≤ 900px) */
+@media (max-width: 900px) {
+  .cartel {
+    margin-top: 40px;
   }
 
-  .cartel-dia p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+  .cartel h2 {
+    font-size: 2.5rem;
+    padding: 25px 0;
   }
 
-  .cartel-dia p strong {
-    font-size: 1.2rem;
-    background: none;
-    color: var(--negro);
+  .cartel .bloque {
+    padding: 30px 40px;
   }
 
-  .ubicacion {
+  .cartel .fecha {
+    font-size: 2.4rem;
+    margin-right: 60px;
+    margin-left: 20px;
+  }
+
+  .cartel .palabra {
+    font-size: 1.6rem;
+  }
+
+  .cartel .palabra::after {
+    font-size: 30px;
+    margin: 0 25px;
+  }
+
+  /* Centra las filas pero mantiene proporciones */
+  .cartel .fila {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cartel .artistas {
+    align-items: center;
+  }
+}
+
+/* 🔹 Versión móvil (≤ 700px) */
+@media (max-width: 700px) {
+  .cartel {
+    margin-top: 25px;
+  }
+
+  .cartel h2 {
+    font-size: 2rem;
+    padding: 18px 0;
+    letter-spacing: -1px;
+  }
+
+  .cartel .bloque {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .cartel .fecha {
     font-size: 1.8rem;
-    padding: 30px 20px;
+    margin: 0 0 15px 0;
+  }
+
+  .cartel .artistas {
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cartel .fila {
+    justify-content: center !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+
+  .cartel .palabra {
+    font-size: 1.1rem;
+  }
+
+  .cartel .palabra::after {
+    font-size: 22px;
+    margin: 0 10px;
   }
 }
