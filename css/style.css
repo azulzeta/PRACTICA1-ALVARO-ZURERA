@@ -36,15 +36,26 @@ html, body {
   padding: 0 40px;
   height: 70px;
   border-bottom: 1px solid var(--gris);
-  background-color: var(--blanco);
+  /* background-color: var(--blanco); */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 1000;
   transition: all 0.4s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
+
+/* .barra.blur {
+  background-color: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+} */
 
 
 .nav-left {
@@ -181,7 +192,6 @@ html, body {
 
 .mobile-menu {
   position: absolute;
-  top: 50px; 
   left: 0;
   width: 100%;
   background-color: var(--blanco);
@@ -194,7 +204,7 @@ html, body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 20px 20px;
+  padding: 0px 20px;
   z-index: 999;
 }
 
@@ -352,7 +362,7 @@ body {
   justify-content: center;
   overflow: hidden;
   padding: 0;
-  margin: 30px 0px 0px 0px;
+  margin: 30px 0px 50px 0px;
   gap: 30px;
 }
 
@@ -419,7 +429,7 @@ body {
   width: 100%;
   overflow: hidden;
   background-color: var(--blanco);
-  padding: 100px 40px 50px 40px;
+  padding: 50px 40px 50px 40px;
 }
 
 .video-logo {
@@ -722,9 +732,13 @@ body {
       font-size: 40px;
   }
 
+  .marquesina {
+    margin: 100px 0px;
+  }
+
 
   .boton-tickets {
-      margin: 60px auto;
+      margin: 60px 60px 100px 60px;
     }
 
   .buy-btn {
@@ -848,9 +862,6 @@ body {
         font-size: 30px;
     }
 
-    /* Alternancia izquierda-derecha */
-    .palabras-container .linea:nth-child(odd) { justify-content: flex-start; }
-    .palabras-container .linea:nth-child(even) { justify-content: flex-end; }
 
     .categories {
         gap: 20px;
@@ -863,7 +874,7 @@ body {
     }
 
     .marquesina {
-      margin: 100px 0px; /* 🔸 acercamos la imagen al top */
+      margin: 100px 0px; 
     }
 
     .marquesina-track {
@@ -875,11 +886,11 @@ body {
 
     .marquesina-track img {
       display: none;
-      width: 100vw;          /* 🔸 ocupa todo el ancho del viewport */
-      max-width: 100%;       /* 🔸 sin límite */
-      height: auto;          /* 🔸 ajusta la altura automáticamente */
-      max-height: 90vh;      /* 🔸 usa casi toda la pantalla, sin desbordar */
-      object-fit: cover;     /* 🔸 llena mejor el espacio (ligeros recortes laterales si hace falta) */
+      width: 100vw;          
+      max-width: 100%;   
+      height: auto;          
+      max-height: 90vh;      
+      object-fit: cover;     
       margin: 0 auto;
       border-radius: 0;
     }
@@ -893,15 +904,15 @@ body {
     }
 
     .boton-tickets {
-      margin: 60px auto;
+      margin: 60px 0px 100px 0px;
       width: 100%;
       justify-content: center;
     }
 
     .buy-btn {
-      width: 50%;              /* 🔸 botón más ancho en pantalla pequeña */
-      padding: 15px 10px;         /* 🔸 más alto, sin exceso lateral */
-      font-size: 1rem;       /* 🔸 texto más grande y legible */
+      width: 50%;   
+      padding: 15px 10px;   
+      font-size: 1rem;   
       border-radius: 35px;
       text-align: center;
     }
@@ -1007,3 +1018,139 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================
+   CARTELERA
+====================== */
+.cartelera {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 70px 0;
+}
+
+/* SECCIONES INDIVIDUALES */
+.ubicacion,
+.day1,
+.day2,
+.day3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 30px 60px;
+  color: var(--blanco);
+  border-bottom: 3px solid var(--negro);
+}
+
+.ubicacion {
+  background-color: var(--verde);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  border-top: 3px solid var(--negro);
+}
+
+/* Día 1, 2, 3 colores */
+.day1 { 
+  background-color: var(--rosa);
+}
+.day2 { background-color: var(--verde); }
+.day3 { background-color: var(--rosa); }
+
+
+/* CONTENIDO INTERNO */
+.cartel-dia {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cartel-dia h3 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  color: var(--blanco);
+  flex: 1;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.cartel-dia p {
+  flex: 5;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--blanco);
+}
+
+/* Artistas principales destacados */
+.cartel-dia p strong {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cartel-dia {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cartel-dia h3 {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+
+  .cartel-dia p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .cartel-dia p strong {
+    font-size: 1.2rem;
+    background: none;
+    color: var(--negro);
+  }
+
+  .ubicacion {
+    font-size: 1.8rem;
+    padding: 30px 20px;
+  }
+}

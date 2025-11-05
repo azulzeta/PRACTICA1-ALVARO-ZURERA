@@ -17,6 +17,11 @@
 
 
 
+
+
+
+
+
 // --- MENÚ DESPLEGABLE VERSIÓN MÓVIL CON EFECTO DESENFOCADO ---
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
@@ -134,6 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateCountdown, 1000);
 });
 
+
+
+// PALABRAS CONTAINER
 
 
 
