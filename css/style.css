@@ -180,38 +180,90 @@ html, body {
 
 
 .mobile-menu {
-  display: none;
-  flex-direction: column;
-  background-color: var(--blanco);
   position: absolute;
-  top: 70px;
-  right: 0;
+  top: 50px; 
+  left: 0;
   width: 100%;
-  border-top: 1px solid var(--gris);
-  padding: 20px 0;
-  text-align: center;
-  z-index: 900;
-}
-
-.mobile-menu ul {
-  list-style: none;
-}
-
-.mobile-menu li {
-  margin: 15px 0;
-}
-
-.mobile-menu a {
-  color: var(--negro);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
+  background-color: var(--blanco);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 20px 20px;
+  z-index: 999;
 }
 
 .mobile-menu.active {
-  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
+/* Lista */
+.mobile-menu ul {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Elementos */
+.mobile-menu li {
+  width: 100%;
+  border-bottom: 1px solid var(--gris); /* 🔹 línea divisoria */
+  padding: 20px 0;
+}
+
+/* Enlaces */
+.mobile-menu a {
+  color: var(--negro);
+  text-decoration: none;
+  font-size: 0.85rem;
+  position: relative;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end; /* 🔹 texto e iconos hacia la derecha */
+}
+
+/* Iconos */
+.mobile-menu i {
+  font-size: 1rem;
+}
+
+/* Hover - subrayado suave */
+.mobile-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--negro);
+  transition: width 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: var(--rosa);
+  font-weight: 700;
+}
+
+.mobile-menu a:hover::after {
+  width: 100%;
+}
+
+.fa, .fab, .fal, .far, .fas {
+  line-height: 1.1;
+}
 
 
 body {
@@ -731,7 +783,7 @@ body {
     .barra {
         justify-content: center;
         padding: 0 20px;
-        height: 60px;
+        /* height: 60px; */
     }
 
     .logo {
