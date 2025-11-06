@@ -98,7 +98,7 @@ html, body {
   width: 100%;
 }
 
-/* 🔹 Estado activo del menú */
+
 .menu a.active {
   color: var(--rosa);
   font-weight: 700;
