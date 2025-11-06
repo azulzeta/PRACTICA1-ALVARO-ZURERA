@@ -141,6 +141,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+// MODO OSCURO
+
+// Esperar a que el DOM cargue
+document.addEventListener("DOMContentLoaded", () => {
+  const btnTema = document.querySelector(".light-btn");
+  const body = document.body;
+  const icono = btnTema.querySelector("i");
+
+  // Verificar si ya hay un tema guardado en localStorage
+  const temaGuardado = localStorage.getItem("tema");
+  if (temaGuardado === "dark") {
+    body.classList.remove("light-theme");
+    body.classList.add("dark-theme");
+    icono.classList.replace("fa-lightbulb", "fa-moon");
+  }
+
+  // Cambiar tema al hacer clic
+  btnTema.addEventListener("click", () => {
+    const esClaro = body.classList.contains("light-theme");
+
+    if (esClaro) {
+      body.classList.remove("light-theme");
+      body.classList.add("dark-theme");
+      icono.classList.replace("fa-lightbulb", "fa-moon");
+      localStorage.setItem("tema", "dark");
+    } else {
+      body.classList.remove("dark-theme");
+      body.classList.add("light-theme");
+      icono.classList.replace("fa-moon", "fa-lightbulb");
+      localStorage.setItem("tema", "light");
+    }
+  });
+});
+
+
+
+
 // PALABRAS CONTAINER
 
 
@@ -183,3 +222,95 @@ const images = document.querySelectorAll('.marquesina-track img');
 
   window.addEventListener('load', setupResponsive);
   window.addEventListener('resize', setupResponsive);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // FORMULARIO
+
+  document.getElementById("formSuscripcion").addEventListener("submit", function (event) {
+      event.preventDefault(); // Evita envío automático
+      let valido = true;
+
+      // Obtener campos
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const confirmarEmail = document.getElementById("confirmarEmail").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      const repetirContrasena = document.getElementById("repetirContrasena").value.trim();
+
+      // Limpiar errores
+      document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
+      // Validar nombre
+      if (nombre === "") {
+        document.getElementById("errorNombre").textContent = "Ingrese su nombre.";
+        valido = false;
+      }
+
+      // Validar apellido
+      if (apellido === "") {
+        document.getElementById("errorApellido").textContent = "Ingrese su apellido.";
+        valido = false;
+      }
+
+      // Validar teléfono (solo números)
+      if (!/^[0-9]+$/.test(telefono)) {
+        document.getElementById("errorTelefono").textContent = "Ingrese un número de teléfono válido.";
+        valido = false;
+      }
+
+      // Validar email
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById("errorEmail").textContent = "Ingrese un email válido.";
+        valido = false;
+      }
+
+      // Confirmar email
+      if (email !== confirmarEmail) {
+        document.getElementById("errorConfirmarEmail").textContent = "Los correos no coinciden.";
+        valido = false;
+      }
+
+      // Validar contraseña
+      if (contrasena.length < 8) {
+        document.getElementById("errorContrasena").textContent = "Debe tener al menos 8 caracteres.";
+        valido = false;
+      }
+
+      if (contrasena !== repetirContrasena) {
+        document.getElementById("errorRepetirContrasena").textContent = "Las contraseñas no coinciden.";
+        valido = false;
+      }
+
+      // Si todo está correcto
+      if (valido) {
+        alert("¡Formulario enviado con éxito!");
+        document.getElementById("formSuscripcion").reset();
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+    

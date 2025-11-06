@@ -22,7 +22,7 @@
                     </a>
     
                     <ul class="menu">
-                        <li class="menulink"><a href="index.html">INICIO</a></li>
+                        <li class="menulink"><a href="index.html" class="active">INICIO</a></li>
                         <li class="menulink"><a href="cartel.html">CARTEL</a></li>
                         <li class="menulink"><a href="tickets.html">TICKETS</a></li>
                         <li class="menulink"><a href="suscribe.html">SUSCRIPCION</a></li>
@@ -267,19 +267,58 @@
                     <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
+            </div>
 
-                <div class="footer-legal">
+            <div class="footer-legal">
                 <div class="footer-links">
                     <a href="#">Terms of service</a>
                     <a href="#">Cookie settings</a>
                     <a href="#">Legal Warning</a>
                     <a href="#">Register conditions</a>
                 </div>
-                <span>©2025 Primavera Sound. All Rights Reserved.</span>
+                <div>
+                    <span>©2025 Primavera Sound. All Rights Reserved.</span>
                 </div>
             </div>
         </footer>
+
+        <!-- =========================
+             MODAL HTML (insertado dentro del body)
+             ========================= -->
+        <div id="newsletterModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+          <div class="modal__panel" role="document">
+            <button class="modal__close" id="closeModalBtn" aria-label="Cerrar ventana"><i class="fas fa-times"></i></button>
+
+            <h1 id="modalTitle" class="modal__title">Suscríbete<br><span>a nuestra Newsletter</span></h1>
+
+            <form id="newsletterForm" novalidate>
+              <div>
+                <label for="nombreNews" class="sr-only">Nombre</label>
+                <input id="nombreNews" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+                <div id="errorNombre" class="error-msg" aria-live="polite"></div>
+              </div>
+
+              <div>
+                <label for="emailNews" class="sr-only">E-mail</label>
+                <input id="emailNews" name="email" type="email" placeholder="E-mail" autocomplete="email" required>
+                <div id="errorEmail" class="error-msg" aria-live="polite"></div>
+              </div>
+
+              <label class="modal__check">
+                <input id="aceptarTerminos" type="checkbox" required>
+                <div style="font-size:14px;">
+                  Al registrarte o utilizar nuestros servicios, confirmas que has leído, comprendido y aceptas nuestra
+                  <a href="#" target="_blank" rel="noopener">Política de Privacidad</a> y nuestros
+                  <a href="#" target="_blank" rel="noopener">Términos y Condiciones</a>.
+                </div>
+              </label>
+              <div id="errorCheck" class="error-msg" aria-live="polite"></div>
+
+              <button class="btn-aceptar" type="submit" id="aceptarBtn">ACEPTAR</button>
+            </form>
+          </div>
+        </div>
+        
 
 
         

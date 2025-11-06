@@ -98,6 +98,18 @@ html, body {
   width: 100%;
 }
 
+/* 🔹 Estado activo del menú */
+.menu a.active {
+  color: var(--rosa);
+  font-weight: 700;
+}
+
+.menu a.active::after {
+  width: 100%;
+  background-color: var(--rosa);
+  height: 1px;
+}
+
 .nav-right {
   display: flex;
   align-items: center;
@@ -406,14 +418,14 @@ body {
 .category.green {
   background-color: var(--verde);
   animation-name: slideInRight;
-  justify-content: flex-start; /* texto alineado a la izquierda */
+  justify-content: flex-start;
   text-align: left;
 }
 
 .category.pink {
   background-color: var(--rosa);
   animation-name: slideInLeft;
-  justify-content: flex-end; /* texto alineado a la derecha */
+  justify-content: flex-end;
   text-align: right;
 }
 
@@ -422,7 +434,7 @@ body {
   width: 100%;
   overflow: hidden;
   background-color: var(--blanco);
-  padding: 60px 40px;
+  padding: 80px 40px;
 }
 
 .video-logo {
@@ -681,6 +693,12 @@ body {
 
 
 
+
+
+
+
+
+
 /* RESPONSIVE */
 
 /* ADAPTACION GENERAL */
@@ -838,7 +856,7 @@ body {
     }
 
     .logo-movimiento {
-        padding: 40px 20px 5px; /* Ajusta según tu necesidad */
+        padding: 40px 20px 20px;
     }
 
     .linea-negra {
@@ -1319,3 +1337,195 @@ body {
     margin: 0 10px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SUSCRIPCION */
+
+/* ==== FORMULARIO SUSCRIPCIÓN ==== */
+    .suscripcion-container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 40px;
+      background-color: var(--card-bg, #f9f9f9);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .suscripcion-container h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+      color: var(--rosa);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--input-bg, #fff);
+      transition: border 0.2s;
+    }
+
+    input:focus {
+      border-color: var(--negro);
+      outline: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: -8px;
+      text-align: left;
+    }
+
+    button[type="submit"] {
+      background-color: var(--gris);
+      color: var(--negro);
+      border: none;
+      margin-top: 10px;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--negro);
+      color: var(--blanco);
+    }
+
+    @media (max-width: 700px) {
+      .suscripcion-container {
+        margin: 40px 20px;
+        padding: 30px;
+      }
+    }
+
+    
+
+
+
+
+
+
+
+    /* Modal overlay */
+          .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1200;
+            background: rgba(0,0,0,0.45);
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+          }
+
+          /* Panel */
+          .modal__panel {
+            width: 100%;
+            max-width: 980px;
+            background: #d9d2d2; /* gris suave similar al mockup */
+            border-radius: 18px;
+            padding: 36px 48px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            position: relative;
+            color: #111;
+            font-family: system-ui, Arial, sans-serif;
+          }
+
+          .modal__close {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: #666;
+          }
+
+          .modal__title {
+            font-size: clamp(34px, 6vw, 64px);
+            margin: 0 0 22px 0;
+            font-weight: 900;
+            line-height: 0.95;
+          }
+
+          /* Form layout */
+          .modal form { display: grid; gap: 12px; margin-top: 8px; }
+          .modal input[type="text"],
+          .modal input[type="email"] {
+            width: 100%;
+            padding: 14px 12px;
+            border-radius: 4px;
+            border: none;
+            background: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+          }
+
+          .modal__check {
+            display:flex;
+            gap:10px;
+            align-items:flex-start;
+            font-size:14px;
+            color:#111;
+            margin-top: 6px;
+          }
+          .modal__check input[type="checkbox"] { margin-top:6px; }
+
+          .modal__check a { font-weight:700; text-decoration:underline; color:inherit; }
+
+          .btn-aceptar {
+            margin-top: 12px;
+            width: 320px;
+            max-width: 100%;
+            justify-self: center;
+            background: #ff7fa6;
+            color: #fff;
+            border: none;
+            padding: 16px 22px;
+            border-radius: 6px;
+            font-weight:800;
+            cursor:pointer;
+            font-size:18px;
+          }
+          .btn-aceptar:disabled { opacity:0.6; cursor:not-allowed; }
+
+          .error-msg { color:#b22222; font-size:13px; min-height:18px; }
+
+          /* Responsive */
+          @media (max-width: 680px) {
+            .modal__panel { padding: 20px; border-radius:12px; }
+            .modal__title { font-size: 28px; }
+            .btn-aceptar { width: 100%; }
+          }
