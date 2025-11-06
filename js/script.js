@@ -158,6 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
 // --- MARQUESINA (uso responsive) ---
 document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll('.marquesina-track img');
@@ -197,6 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('load', setupResponsive);
   window.addEventListener('resize', setupResponsive);
 });
+
+
 
 
 

@@ -1161,28 +1161,31 @@ body {
     margin-bottom: 50px;
 }
 
-/* Contenedor de la galería */
 .galeria-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
 }
 
 /* Cada artista */
 .artista {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  aspect-ratio: 3 / 4; /* 🔹 controla la forma vertical */
 }
 
+/* Imagen dentro del rectángulo */
 .artista img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔹 rellena todo el espacio sin deformar */
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 
 
 .artista:hover img {
@@ -1223,6 +1226,10 @@ body {
     text-align: left;
     font-size: 3rem;
     margin-bottom: 50px;
+
+    .overlay {
+      font-size: 1rem;
+    }
 }
 }
 
@@ -1235,10 +1242,14 @@ body {
     }
 
     .galeria h2 {
-    text-align: left;
-    font-size: 2rem;
-    margin-bottom: 50px;
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 50px;
 }
+
+    .overlay {
+      font-size: 1rem;
+    }
 }
 
 
@@ -1290,7 +1301,10 @@ body {
   .cartel .artistas {
     align-items: center;
   }
+
+  
 }
+
 
 /* 🔹 Versión móvil (≤ 700px) */
 @media (max-width: 700px) {
@@ -1336,6 +1350,7 @@ body {
     font-size: 22px;
     margin: 0 10px;
   }
+  
 }
 
 
