@@ -16,6 +16,27 @@
 
 
 
+// PAGINA DE CARGA
+document.addEventListener("DOMContentLoaded", () => {
+  const porcentaje = document.getElementById("porcentaje");
+  const cargaDiv = document.getElementById("carga");
+  if (!porcentaje || !cargaDiv) return;
+
+  let contador = 0;
+
+  function carga() {
+    if (contador <= 100) {
+      porcentaje.textContent = contador + "%";
+      contador++;
+      setTimeout(carga, 40); 
+    } else {
+      cargaDiv.style.top = "-100%";
+    }
+  }
+
+  carga();
+});
+
 
 
 
@@ -127,6 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 });
+
+
+
+
+
 
 
 // --- MODO OSCURO ---
@@ -274,3 +300,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+// TICKETS
+
+document.addEventListener("DOMContentLoaded", () => {
+  const arrows = document.querySelectorAll(".toggle-arrow");
+  const totalDisplay = document.querySelector("#total");
+
+  // Mostrar / ocultar secciones
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", () => {
+      const section = arrow.closest(".section-header").nextElementSibling;
+      arrow.classList.toggle("rotate");
+      section.classList.toggle("active");
+    });
+  });
+
+  // Control de + / - y actualización total
+  document.querySelectorAll(".ticket-row").forEach((row) => {
+    const minus = row.querySelector(".minus");
+    const plus = row.querySelector(".plus");
+    const qty = row.querySelector(".quantity");
+    const price = parseFloat(row.dataset.price);
+
+    plus.addEventListener("click", () => {
+      qty.textContent = parseInt(qty.textContent) + 1;
+      updateTotal();
+    });
+
+    minus.addEventListener("click", () => {
+      const current = parseInt(qty.textContent);
+      if (current > 0) {
+        qty.textContent = current - 1;
+        updateTotal();
+      }
+    });
+  });
+
+  function updateTotal() {
+    let total = 0;
+    document.querySelectorAll(".ticket-row").forEach((row) => {
+      const qty = parseInt(row.querySelector(".quantity").textContent);
+      const price = parseFloat(row.dataset.price);
+      total += qty * price;
+    });
+    totalDisplay.textContent = total.toFixed(2).replace(".", ",") + "€";
+  }
+});
+

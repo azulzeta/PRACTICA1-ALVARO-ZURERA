@@ -59,3 +59,164 @@
             </nav>
 
         </header>
+
+        <main class="tickets-container">
+            <h1 class="tickets-title">BUY YOUR TICKETS</h1>
+
+            <!-- DAY TICKETS -->
+            <section class="tickets-section">
+                <div class="section-header day-header">
+                <div class="header-left">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h2>DAY TICKETS</h2>
+                </div>
+                <i class="fas fa-chevron-down toggle-arrow"></i>
+                </div>
+
+                <div class="ticket-options">
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="95">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">03 O.26</span>
+                    <span class="ticket-kind">DAY TICKET</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">95,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="95">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">04 O.26</span>
+                    <span class="ticket-kind">DAY TICKET</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">95,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="95">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">5 O.26</span>
+                    <span class="ticket-kind">DAY TICKET</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">95,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- ABONOS -->
+            <section class="tickets-section">
+                <div class="section-header abono-header">
+                <div class="header-left">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h2>ABONOS</h2>
+                </div>
+                <i class="fas fa-chevron-down toggle-arrow"></i>
+                </div>
+
+                <div class="ticket-options">
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="280">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">ABONO NORMAL</span>
+                    <span class="ticket-kind">GENERAL</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">280,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="310">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">ABONO COMPLETO</span>
+                    <span class="ticket-kind">GENERAL</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">310,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="ticket-box">
+                    <div class="ticket-row" data-price="375">
+                    <button class="info-btn">+ INFO</button>
+                    <span class="ticket-date">ABONO VIP</span>
+                    <span class="ticket-kind">VIP</span>
+                    <span class="ticket-from">DESDE</span>
+                    <span class="ticket-price">375,00€ + Tasas</span>
+                    <div class="ticket-controls">
+                        <button class="minus">−</button>
+                        <span class="quantity">0</span>
+                        <button class="plus">+</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- TOTAL -->
+            <div class="total-box">
+                <div class="total-label">
+                <i class="fas fa-ticket-alt"></i>
+                <h2>TOTAL</h2>
+                </div>
+                <div id="total">0,00€</div>
+            </div>
+    
+            <button class="next-btn">
+            SIGUIENTE <i class="fas fa-arrow-right"></i>
+            </button>
+
+        </main>
+
+
+
+        <!-- MODAL NEWSLETTER -->
+        <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Suscríbete<br> a nuestra <strong>Newsletter</strong></h2>
+
+            <form class="newsletter-form">
+            <input type="text" placeholder="Tu nombre" required />
+            <input type="email" placeholder="E-mail" required />
+
+            <label class="checkbox">
+                <input type="checkbox" required />
+                Al registrarte o utilizar nuestros servicios, confirmas que has leído, comprendido y aceptas nuestra
+                <strong>Política de Privacidad</strong> y nuestros <strong>Términos y Condiciones.</strong>
+            </label>
+
+            <button type="submit" class="accept-btn">ACEPTAR</button>
+            </form>
+        </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>

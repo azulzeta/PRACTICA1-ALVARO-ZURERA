@@ -11,8 +11,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
-   font-family: "Segoe UI", "SegoeUI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   /* font-family: "Segoe UI", "SegoeUI", Roboto, "Helvetica Neue", Arial, sans-serif; */
 }
 
 
@@ -27,6 +27,40 @@ html, body {
   color: var(--negro);
   margin: 0;
   padding: 0;
+}
+
+#carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 138, 179, 1); /* #FF8AB3 con 80% de opacidad */
+    backdrop-filter: blur(8px); /* desenfoque del fondo */
+    -webkit-backdrop-filter: blur(8px); /* compatibilidad Safari */
+    display: flex;
+    justify-content: flex-end; /* número abajo a la derecha */
+    align-items: flex-end;
+    padding: 20px;
+    flex-direction: column;
+    z-index: 9999;
+    transition: top 1.5s ease; /* deslizamiento más lento */
+}
+
+#porcentaje {
+    color: var(--negro);
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#logo-carga {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: auto;
 }
 
 
@@ -163,6 +197,105 @@ html, body {
   background-color: var(--negro);
   color: var(--blanco);
 }
+
+
+
+
+/* ==== MODAL NEWSLETTER ==== */
+
+.modal {
+  display: none; /* Oculta por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #bfb8b8;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.modal-content strong {
+  font-weight: 800;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Formulario */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: stretch;
+}
+
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"] {
+  padding: 12px 15px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.checkbox {
+  font-size: 0.9rem;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #111;
+}
+
+.accept-btn {
+  background-color: #ff7ea8;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.accept-btn:hover {
+  background-color: #ff5c91;
+}
+
+
 
 .light-btn {
   background-color: var(--blanco);
@@ -1545,3 +1678,457 @@ body {
             .modal__title { font-size: 28px; }
             .btn-aceptar { width: 100%; }
           }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PAGINA TICKETS */
+
+/* tickets.css
+   Asume que tu CSS global con :root está cargado antes (para --rosa, --verde, --gris, etc.)
+*/
+
+
+.tickets-container {
+  text-align: center;
+  padding: 0;
+}
+
+.tickets-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 80px;
+  text-transform: uppercase;
+}
+
+/* ---- BLOQUES PRINCIPALES ---- */
+.section-header,
+.total-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 20px 7.5vw;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  text-transform: uppercase;
+  color: #000;
+  height: 100px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.day-header {
+  background-color: var(--rosa);
+}
+.abono-header {
+  background-color: var(--verde);
+  margin-top: 28px;
+}
+
+.toggle-arrow {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.toggle-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* ---- TICKET OPTIONS ---- */
+.ticket-options {
+  display: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 20px 7.5vw;
+}
+.ticket-options.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ---- CAJAS ---- */
+.ticket-box {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* ---- FILA CON 6 COLUMNAS ---- */
+.ticket-row {
+  display: grid;
+  /* columnas: info-btn | fecha (ajustada al contenido) | tipo (ajustada) |
+     ESPACIO FLEXIBLE (separa mucho) | "DESDE" (ajustada) | precio (ajustada) | controles */
+  grid-template-columns: auto min-content min-content 1fr min-content min-content auto;
+  align-items: center;
+  gap: 12px; /* espacio pequeño entre elementos adyacentes */
+}
+.info-btn {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.info-btn:hover {
+  background: #333;
+  color: white;
+}
+
+.ticket-date,
+.ticket-kind {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ticket-from,
+.ticket-price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ticket-date,
+.ticket-price {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.ticket-kind, 
+.ticket-from {
+  color: var(--gris-oscuro);
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.ticket-price {
+  font-weight: 700;
+  text-align: right;
+}
+
+.ticket-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 50px;
+  justify-content: flex-end;
+}
+
+.ticket-controls button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background:  var(--gris-oscuro);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.ticket-controls button:hover {
+  background: #111;
+}
+.ticket-controls button:active {
+  transform: scale(0.95);
+}
+.quantity {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ---- TOTAL ---- */
+.total-box {
+  background: var(--gris);
+  margin-top: 30px;
+  height: 90px;
+}
+
+.total-label {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.next-btn {
+  display: inline-flex;              /* <== necesario para que gap funcione */
+  align-items: center;               /* centra verticalmente el texto y el ícono */
+  justify-content: center;
+  background-color: var(--gris);
+  gap: 20px;                         /* separación entre texto y flecha */
+  color: var(--negro);
+  padding: 15px 80px;
+  margin: 100px;
+  font-size: 1rem;
+  font-weight: 550;
+  border: 1px solid var(--negro);
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+.next-btn i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.next-btn:hover i {
+  transform: translateX(4px); /* la flecha se mueve ligeramente a la derecha al pasar el mouse */
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------ */
+/* RESPONSIVE DESIGN */
+/* ------------------------------ */
+
+/* --- TABLET --- */
+@media (max-width: 900px) {
+  .tickets-title {
+    font-size: 3rem;
+    margin: 60px 0;
+  }
+
+  .section-header,
+  .total-box {
+    height: 85px;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    padding: 16px 5vw;
+  }
+
+  .header-left {
+    gap: 25px;
+  }
+
+  .ticket-options {
+    padding: 16px 5vw;
+  }
+
+  .ticket-box {
+    padding: 16px;
+  }
+
+  .ticket-row {
+    grid-template-columns: auto min-content min-content 1fr min-content min-content auto;
+    gap: 10px;
+  }
+
+  .info-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .ticket-date,
+  .ticket-kind,
+  .ticket-from,
+  .ticket-price {
+    font-size: 0.95rem;
+  }
+
+  .ticket-controls button {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .quantity {
+    font-size: 0.95rem;
+  }
+
+  .next-btn {
+    padding: 12px 46px;
+    font-size: 1rem;
+  }
+}
+
+/* --- MOBILE & SMALL TABLETS --- */
+@media (max-width: 700px) {
+  .tickets-title {
+    font-size: 2.2rem;
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  /* ---- HEADER (DAY TICKETS, ABONOS, TOTAL) ---- */
+  .section-header,
+  .total-box {
+    flex-direction: row; /* ✅ Flecha y texto en la misma línea */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 18px 6vw;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .toggle-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    margin-left: 8px; /* separa ligeramente de h2 */
+  }
+
+  /* ---- OPCIONES ---- */
+  .ticket-options {
+    padding: 10px 5vw;
+  }
+
+  .ticket-box {
+    width: 100%;
+    padding: 16px 14px;
+    border-radius: 10px;
+  }
+
+  /* ---- FILA PRINCIPAL ---- */
+  .ticket-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* ---- INFO LÍNEA (fecha, tipo, precio, etc.) ---- */
+  .ticket-info-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .ticket-date,
+  .ticket-kind,
+  .ticket-from,
+  .ticket-price {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .ticket-date,
+  .ticket-kind {
+    margin-right: 6px;
+  }
+  .ticket-from {
+    margin-left: auto;
+    margin-right: 4px;
+  }
+
+  /* ---- CONTROLES + INFO ---- */
+  .ticket-controls-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* ✅ INFO alineado a la izquierda */
+  .info-btn {
+    order: 1;
+    background: transparent;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+  .info-btn:hover {
+    background: #333;
+    color: white;
+  }
+
+  .ticket-controls {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ticket-controls button {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+    background: var(--gris-oscuro);
+  }
+
+  .quantity {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  /* ---- TOTAL ---- */
+  .total-box {
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 18px 6vw;
+  }
+
+  /* ---- BOTÓN FINAL ---- */
+  .next-btn {
+    width: 90%;
+    font-size: 1rem;
+    padding: 14px;
+    margin: 30px auto 60px;
+    display: block;
+  }
+}
