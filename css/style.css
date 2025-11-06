@@ -11,7 +11,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+   font-family: "Segoe UI", "SegoeUI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 
@@ -1129,10 +1130,10 @@ body {
 
 .cartel .palabra::after {
   content: "•";
-  font-size: 40px;
+  font-size: 30px;
   margin: 0px 50px;
   color: var(--negro);
-  font-weight: 900;
+  font-weight: 500;
 }
 
 
@@ -1145,7 +1146,7 @@ body {
 .cartel .bloque .fila-1 { justify-content: flex-start; width: 85%; }
 .cartel .bloque .fila-2 { justify-content: center; width: 90%;}
 .cartel .bloque .fila-3 { justify-content: flex-end; width: 100%;  }
-.cartel .bloque .fila-4 { justify-content: flex-start; width: 75%;  }
+.cartel .bloque .fila-4 { justify-content: flex-start; width: 95%;  }
 .cartel .bloque .fila-5 { justify-content: center; width: 100%; }
 .cartel .bloque .fila-6 { justify-content: flex-end; width: 95%;  }
 .cartel .bloque .fila-7 { justify-content: center; width: 35%; }
