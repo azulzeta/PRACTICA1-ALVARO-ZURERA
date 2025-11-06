@@ -25,43 +25,35 @@
 // --- MENÚ DESPLEGABLE VERSIÓN MÓVIL CON EFECTO DESENFOCADO ---
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
-  const burgerIcon = burger.querySelector("i");
   const mobileMenu = document.querySelector(".mobile-menu");
+  if (!burger || !mobileMenu) return; // seguridad
+
+  const burgerIcon = burger.querySelector("i");
 
   burger.addEventListener("click", () => {
     mobileMenu.classList.toggle("active");
     burger.classList.toggle("active");
 
-   
     if (mobileMenu.classList.contains("active")) {
-      burgerIcon.classList.remove("fa-bars");
-      burgerIcon.classList.add("fa-times");
-
+      burgerIcon.classList.replace("fa-bars", "fa-times");
       mobileMenu.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
       mobileMenu.style.backdropFilter = "blur(8px)";
-      mobileMenu.style.webkitBackdropFilter = "blur(8px)"; 
+      mobileMenu.style.webkitBackdropFilter = "blur(8px)";
     } else {
-      burgerIcon.classList.remove("fa-times");
-      burgerIcon.classList.add("fa-bars");
-
-
+      burgerIcon.classList.replace("fa-times", "fa-bars");
       mobileMenu.style.backgroundColor = "var(--blanco)";
       mobileMenu.style.backdropFilter = "none";
       mobileMenu.style.webkitBackdropFilter = "none";
     }
   });
 
-
-
-
-  // Cerrar menú
+  // Cerrar menú al hacer clic en un enlace
   const links = mobileMenu.querySelectorAll("a");
   links.forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.classList.remove("active");
       burger.classList.remove("active");
-      burgerIcon.classList.remove("fa-times");
-      burgerIcon.classList.add("fa-bars");
+      burgerIcon.classList.replace("fa-times", "fa-bars");
       mobileMenu.style.backgroundColor = "var(--blanco)";
       mobileMenu.style.backdropFilter = "none";
       mobileMenu.style.webkitBackdropFilter = "none";
@@ -73,8 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
       mobileMenu.classList.remove("active");
       burger.classList.remove("active");
-      burgerIcon.classList.remove("fa-times");
-      burgerIcon.classList.add("fa-bars");
+      burgerIcon.classList.replace("fa-times", "fa-bars");
       mobileMenu.style.backgroundColor = "var(--blanco)";
       mobileMenu.style.backdropFilter = "none";
       mobileMenu.style.webkitBackdropFilter = "none";
@@ -86,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 700) {
       mobileMenu.classList.remove("active");
       burger.classList.remove("active");
-      burgerIcon.classList.remove("fa-times");
-      burgerIcon.classList.add("fa-bars");
+      burgerIcon.classList.replace("fa-times", "fa-bars");
       mobileMenu.style.backgroundColor = "var(--blanco)";
       mobileMenu.style.backdropFilter = "none";
       mobileMenu.style.webkitBackdropFilter = "none";
@@ -96,81 +86,71 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
 // --- COUNTDOWN ---
 document.addEventListener("DOMContentLoaded", () => {
+  const countdownSection = document.querySelector(".countdown");
+  if (!countdownSection) return; // si no hay contador, salimos
+
   const countdownElements = {
-    days: document.querySelector(".countdown .count-item:nth-child(1) .number"),
-    hours: document.querySelector(".countdown .count-item:nth-child(2) .number"),
-    minutes: document.querySelector(".countdown .count-item:nth-child(3) .number"),
-    seconds: document.querySelector(".countdown .count-item:nth-child(4) .number")
+    days: countdownSection.querySelector(".count-item:nth-child(1) .number"),
+    hours: countdownSection.querySelector(".count-item:nth-child(2) .number"),
+    minutes: countdownSection.querySelector(".count-item:nth-child(3) .number"),
+    seconds: countdownSection.querySelector(".count-item:nth-child(4) .number")
   };
 
-  // Fecha objetivo: 3 de octubre de 2026, 00:00:00
   const targetDate = new Date("October 3, 2026 00:00:00").getTime();
 
   function updateCountdown() {
+    const { days, hours, minutes, seconds } = countdownElements;
+    if (!days || !hours || !minutes || !seconds) return;
+
     const now = new Date().getTime();
     const timeLeft = targetDate - now;
 
     if (timeLeft <= 0) {
-      // Si la fecha ya ha pasado
-      countdownElements.days.textContent = "0";
-      countdownElements.hours.textContent = "0";
-      countdownElements.minutes.textContent = "0";
-      countdownElements.seconds.textContent = "0";
+      days.textContent = "0";
+      hours.textContent = minutes.textContent = seconds.textContent = "00";
       return;
     }
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    const d = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const h = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    countdownElements.days.textContent = days;
-    countdownElements.hours.textContent = hours.toString().padStart(2, "0");
-    countdownElements.minutes.textContent = minutes.toString().padStart(2, "0");
-    countdownElements.seconds.textContent = seconds.toString().padStart(2, "0");
+    days.textContent = d;
+    hours.textContent = h.toString().padStart(2, "0");
+    minutes.textContent = m.toString().padStart(2, "0");
+    seconds.textContent = s.toString().padStart(2, "0");
   }
 
-  // Actualizar cada segundo
   updateCountdown();
   setInterval(updateCountdown, 1000);
 });
 
 
-
-
-
-// MODO OSCURO
-
-// Esperar a que el DOM cargue
+// --- MODO OSCURO ---
 document.addEventListener("DOMContentLoaded", () => {
   const btnTema = document.querySelector(".light-btn");
+  if (!btnTema) return;
+
   const body = document.body;
   const icono = btnTema.querySelector("i");
 
-  // Verificar si ya hay un tema guardado en localStorage
   const temaGuardado = localStorage.getItem("tema");
   if (temaGuardado === "dark") {
-    body.classList.remove("light-theme");
-    body.classList.add("dark-theme");
+    body.classList.replace("light-theme", "dark-theme");
     icono.classList.replace("fa-lightbulb", "fa-moon");
   }
 
-  // Cambiar tema al hacer clic
   btnTema.addEventListener("click", () => {
     const esClaro = body.classList.contains("light-theme");
-
     if (esClaro) {
-      body.classList.remove("light-theme");
-      body.classList.add("dark-theme");
+      body.classList.replace("light-theme", "dark-theme");
       icono.classList.replace("fa-lightbulb", "fa-moon");
       localStorage.setItem("tema", "dark");
     } else {
-      body.classList.remove("dark-theme");
-      body.classList.add("light-theme");
+      body.classList.replace("dark-theme", "light-theme");
       icono.classList.replace("fa-moon", "fa-lightbulb");
       localStorage.setItem("tema", "light");
     }
@@ -180,17 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// PALABRAS CONTAINER
-
-
-
-
-
-// USO MARQUESINA
-
-const images = document.querySelectorAll('.marquesina-track img');
+// --- MARQUESINA (uso responsive) ---
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.marquesina-track img');
   const prev = document.querySelector('.arrow.left');
   const next = document.querySelector('.arrow.right');
+  if (!images.length || !prev || !next) return; // seguridad
+
   let current = 0;
 
   function showImage(index) {
@@ -222,95 +198,79 @@ const images = document.querySelectorAll('.marquesina-track img');
 
   window.addEventListener('load', setupResponsive);
   window.addEventListener('resize', setupResponsive);
+});
 
 
 
 
 
+// --- FORMULARIO ---
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formSuscripcion");
+  if (!form) return; // si no existe el formulario, no ejecutar nada
 
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita envío automático
+    let valido = true;
 
+    // Obtener campos
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellido = document.getElementById("apellido").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const confirmarEmail = document.getElementById("confirmarEmail").value.trim();
+    const contrasena = document.getElementById("contrasena").value.trim();
+    const repetirContrasena = document.getElementById("repetirContrasena").value.trim();
 
+    // Limpiar errores
+    document.querySelectorAll(".error").forEach(e => e.textContent = "");
 
+    // Validar nombre
+    if (nombre === "") {
+      document.getElementById("errorNombre").textContent = "Ingrese su nombre.";
+      valido = false;
+    }
 
+    // Validar apellido
+    if (apellido === "") {
+      document.getElementById("errorApellido").textContent = "Ingrese su apellido.";
+      valido = false;
+    }
 
+    // Validar teléfono (solo números)
+    if (!/^[0-9]+$/.test(telefono)) {
+      document.getElementById("errorTelefono").textContent = "Ingrese un número de teléfono válido.";
+      valido = false;
+    }
 
+    // Validar email
+    const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById("errorEmail").textContent = "Ingrese un email válido.";
+      valido = false;
+    }
 
+    // Confirmar email
+    if (email !== confirmarEmail) {
+      document.getElementById("errorConfirmarEmail").textContent = "Los correos no coinciden.";
+      valido = false;
+    }
 
+    // Validar contraseña
+    if (contrasena.length < 8) {
+      document.getElementById("errorContrasena").textContent = "Debe tener al menos 8 caracteres.";
+      valido = false;
+    }
 
-  // FORMULARIO
+    if (contrasena !== repetirContrasena) {
+      document.getElementById("errorRepetirContrasena").textContent = "Las contraseñas no coinciden.";
+      valido = false;
+    }
 
-  document.getElementById("formSuscripcion").addEventListener("submit", function (event) {
-      event.preventDefault(); // Evita envío automático
-      let valido = true;
-
-      // Obtener campos
-      const nombre = document.getElementById("nombre").value.trim();
-      const apellido = document.getElementById("apellido").value.trim();
-      const telefono = document.getElementById("telefono").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const confirmarEmail = document.getElementById("confirmarEmail").value.trim();
-      const contrasena = document.getElementById("contrasena").value.trim();
-      const repetirContrasena = document.getElementById("repetirContrasena").value.trim();
-
-      // Limpiar errores
-      document.querySelectorAll(".error").forEach(e => e.textContent = "");
-
-      // Validar nombre
-      if (nombre === "") {
-        document.getElementById("errorNombre").textContent = "Ingrese su nombre.";
-        valido = false;
-      }
-
-      // Validar apellido
-      if (apellido === "") {
-        document.getElementById("errorApellido").textContent = "Ingrese su apellido.";
-        valido = false;
-      }
-
-      // Validar teléfono (solo números)
-      if (!/^[0-9]+$/.test(telefono)) {
-        document.getElementById("errorTelefono").textContent = "Ingrese un número de teléfono válido.";
-        valido = false;
-      }
-
-      // Validar email
-      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-      if (!emailRegex.test(email)) {
-        document.getElementById("errorEmail").textContent = "Ingrese un email válido.";
-        valido = false;
-      }
-
-      // Confirmar email
-      if (email !== confirmarEmail) {
-        document.getElementById("errorConfirmarEmail").textContent = "Los correos no coinciden.";
-        valido = false;
-      }
-
-      // Validar contraseña
-      if (contrasena.length < 8) {
-        document.getElementById("errorContrasena").textContent = "Debe tener al menos 8 caracteres.";
-        valido = false;
-      }
-
-      if (contrasena !== repetirContrasena) {
-        document.getElementById("errorRepetirContrasena").textContent = "Las contraseñas no coinciden.";
-        valido = false;
-      }
-
-      // Si todo está correcto
-      if (valido) {
-        alert("¡Formulario enviado con éxito!");
-        document.getElementById("formSuscripcion").reset();
-      }
-    });
-
-
-
-
-
-
-
-
-
-
-    
+    // Si todo está correcto
+    if (valido) {
+      alert("¡Formulario enviado con éxito!");
+      form.reset();
+    }
+  });
+});
