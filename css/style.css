@@ -2124,8 +2124,8 @@ body {
 .info-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 13px;
+  margin-bottom: 2px;
 }
 .info-date { font-size: 1.8rem; font-weight: 700; color: var(--negro); }
 
