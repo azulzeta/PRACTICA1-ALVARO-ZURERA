@@ -35,16 +35,16 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 138, 179, 1); /* #FF8AB3 con 80% de opacidad */
-    backdrop-filter: blur(8px); /* desenfoque del fondo */
-    -webkit-backdrop-filter: blur(8px); /* compatibilidad Safari */
+    background: rgba(255, 138, 179, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
-    justify-content: flex-end; /* número abajo a la derecha */
+    justify-content: flex-end;
     align-items: flex-end;
     padding: 20px;
     flex-direction: column;
     z-index: 9999;
-    transition: top 1.5s ease; /* deslizamiento más lento */
+    transition: top 1.5s ease;
 }
 
 #porcentaje {
@@ -1760,8 +1760,6 @@ body {
 /* ---- FILA CON 6 COLUMNAS ---- */
 .ticket-row {
   display: grid;
-  /* columnas: info-btn | fecha (ajustada al contenido) | tipo (ajustada) |
-     ESPACIO FLEXIBLE (separa mucho) | "DESDE" (ajustada) | precio (ajustada) | controles */
   grid-template-columns: auto min-content min-content 1fr min-content min-content auto;
   align-items: center;
   gap: 12px; /* espacio pequeño entre elementos adyacentes */
@@ -2008,82 +2006,86 @@ body {
   margin-right: 5px; /* Separación del texto */
 }
 
-  .ticket-row {
-    display: grid;
-    grid-template-columns: 1fr auto; /* izquierda (info y precio) | derecha (+INFO o controles) */
-    grid-template-areas:
-      "info infoBtn"
-      "price controls";
-    gap: 14px;
-    align-items: center;
-    border-radius: 20px;
-    padding: 20px;
-  }
+.ticket-row {
+  display: grid;
+  grid-template-columns: 1fr auto; /* izquierda (info y precio) | derecha (+INFO o controles) */
+  grid-template-areas:
+    "info infoBtn"
+    "price controls";
+  gap: 14px;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px;
+}
 
-  /* ---- BLOQUE SUPERIOR: FECHA + TIPO ---- */
-  
+.ticket-row span {
+  font-size: 18px;
+}
 
-  .ticket-date {
-    grid-area: info;
-    display: inline-flex;
-    align-items: center;
-    justify-content: left;
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-  }
+/* ---- BLOQUE SUPERIOR: FECHA + TIPO ---- */
 
-  .ticket-kind {
-    display: none;
-  }
 
-  /* ---- BOTÓN +INFO ---- */
-  .info-btn {
-    grid-area: infoBtn;
-    justify-self: end;
-    border: 1px solid #000;
-    margin: 0px;
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-weight: 700;
-    background: transparent;
-  }
+.ticket-date {
+  grid-area: info;
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
 
-  /* ---- PRECIO ---- */
-  .ticket-price {
-    grid-area: price;
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
+.ticket-kind {
+  display: none;
+}
 
-  /* ocultar completamente el texto "DESDE" */
-  .ticket-from {
-    display: none;
-  }
+/* ---- BOTÓN +INFO ---- */
+.info-btn {
+  grid-area: infoBtn;
+  justify-self: end;
+  border: 1px solid #000;
+  margin: 0px;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: 700;
+  background: transparent;
+}
 
-  /* ---- CONTROLES DE CANTIDAD ---- */
-  .ticket-controls {
-    grid-area: controls;
-    justify-self: end;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+/* ---- PRECIO ---- */
+.ticket-price {
+  grid-area: price;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
 
-  .ticket-controls button {
-    width: 25px;
-    height: 25px;
-    font-size: 15px;
-    border-radius: 50%;
-    background: var(--gris-oscuro);
-    color: #fff;
-  }
+/* ocultar completamente el texto "DESDE" */
+.ticket-from {
+  display: none;
+}
 
-  .quantity {
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
+/* ---- CONTROLES DE CANTIDAD ---- */
+.ticket-controls {
+  grid-area: controls;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticket-controls button {
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 50%;
+  background: var(--gris-oscuro);
+  color: #fff;
+}
+
+.quantity {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 }
 
 

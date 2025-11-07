@@ -226,26 +226,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Selecciona el botón de la página que abre el modal (no se modifica su clase)
-const openModalBtn = document.querySelector('.newsletter-btn');
-const modal = document.getElementById('newsletterModal');
-const closeModalBtn = document.querySelector('.modal .close');
+document.addEventListener("DOMContentLoaded", () => {
+  const openModalBtn = document.querySelector('.newsletter-btn');
+  const modal = document.getElementById('newsletterModal');
+  let closeModalBtn = null;
 
-// Abrir modal
-openModalBtn.addEventListener('click', () => {
-  modal.style.display = 'flex';
-});
-
-// Cerrar modal
-closeModalBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-// Cerrar haciendo clic fuera del modal
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
+  // Solo intentar encontrar el botón de cerrar si el modal existe
+  if (modal) {
+    closeModalBtn = modal.querySelector('.close');
   }
+
+  // Si no existe el botón de abrir modal o el modal, salir
+  if (!openModalBtn || !modal) return;
+
+  // Abrir modal
+  openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  // Cerrar modal solo si el botón existe
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+
+  // Cerrar haciendo clic fuera del modal
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 });
+
 
 
 
@@ -571,52 +584,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Selecciones
-const infoButtons = document.querySelectorAll('.info-btn');
-const infoModal = document.getElementById('infoModal'); // tu id
-const closeInfo = document.querySelector('.close-info');
+document.addEventListener("DOMContentLoaded", () => {
 
-const infoDate = document.getElementById('infoDate');
-const infoKind = document.getElementById('infoKind');
-const infoDescription = document.getElementById('infoDescription');
+  const ticketDescriptions = {
+    '03 O.26': 'Acceso al festival el 3 de octubre de 2026. Incluye todos los escenarios principales.',
+    '04 O.26': 'Acceso al festival el 4 de octubre de 2026. Incluye todos los escenarios principales.',
+    '05 O.26': 'Acceso al festival el 5 de octubre de 2026. Incluye todos los escenarios principales.',
+    'ABONO NORMAL': 'Acceso general a todos los días del festival.',
+    'ABONO COMPLETO': 'Entrada general con acceso a todas las zonas durante los tres días.',
+    'ABONO VIP': 'Acceso VIP a todas las zonas premium, con beneficios exclusivos.'
+  };
 
-const ticketDescriptions = {
-  '03 O.26': 'Acceso al festival el 3 de octubre de 2026. Incluye todos los escenarios principales.',
-  '04 O.26': 'Acceso al festival el 4 de octubre de 2026. Incluye todos los escenarios principales.',
-  '05 O.26': 'Acceso al festival el 5 de octubre de 2026. Incluye todos los escenarios principales.',
-  'ABONO NORMAL': 'Acceso general a todos los días del festival.',
-  'ABONO COMPLETO': 'Entrada general con acceso a todas las zonas durante los tres días.',
-  'ABONO VIP': 'Acceso VIP a todas las zonas premium, con beneficios exclusivos.'
-};
+  const infoButtons = document.querySelectorAll('.info-btn');
+  const infoModal = document.getElementById('infoModal');
+  const closeInfo = document.querySelector('.close-info');
+  const infoDate = document.getElementById('infoDate');
+  const infoKind = document.getElementById('infoKind');
+  const infoDescription = document.getElementById('infoDescription');
 
-// Abrir modal (IMPORTANTE: usar 'flex' para que el centrado funcione)
-infoButtons.forEach(button => {
-  button.addEventListener('click', e => {
-    const row = e.target.closest('.ticket-row');
-    let date = row.querySelector('.ticket-date').textContent.trim();
+  if (!infoButtons.length || !infoModal || !closeInfo || !infoDate || !infoKind || !infoDescription) return;
 
-// Normaliza el formato: si empieza con un solo dígito, añade 0
-if (/^\d O\.26$/.test(date)) {
-  date = '0' + date;
-}
-    const kind = row.querySelector('.ticket-kind').textContent.trim();
+  infoButtons.forEach(button => {
+    button.addEventListener('click', e => {
+      const row = e.target.closest('.ticket-row');
+      if (!row) return;
 
-    infoDate.textContent = date;
-    infoKind.textContent = kind;
-    infoDescription.textContent = ticketDescriptions[date] || ticketDescriptions[kind];
+      let date = row.querySelector('.ticket-date')?.textContent.trim() || '';
+      const kind = row.querySelector('.ticket-kind')?.textContent.trim() || '';
 
-    // Abrir con flex para activar el centrado
-    infoModal.style.display = 'flex';
+      if (/^\d O\.26$/.test(date)) {
+        date = '0' + date;
+      }
+
+      infoDate.textContent = date;
+      infoKind.textContent = kind;
+      infoDescription.textContent = ticketDescriptions[date] || ticketDescriptions[kind] || '';
+
+      infoModal.style.display = 'flex';
+    });
   });
-});
 
-// Cerrar modal (por botón)
-closeInfo.addEventListener('click', () => {
-  infoModal.style.display = 'none';
-});
-
-// Cerrar modal haciendo click fuera del contenido
-window.addEventListener('click', e => {
-  if (e.target === infoModal) {
+  closeInfo.addEventListener('click', () => {
     infoModal.style.display = 'none';
-  }
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target === infoModal) {
+      infoModal.style.display = 'none';
+    }
+  });
+
 });
