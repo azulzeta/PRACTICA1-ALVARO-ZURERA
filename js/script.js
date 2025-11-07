@@ -43,6 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // --- MENÚ DESPLEGABLE VERSIÓN MÓVIL CON EFECTO DESENFOCADO ---
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
@@ -107,6 +120,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // --- COUNTDOWN ---
 document.addEventListener("DOMContentLoaded", () => {
   const countdownSection = document.querySelector(".countdown");
@@ -151,6 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // Selecciona el botón de la página que abre el modal (no se modifica su clase)
 const openModalBtn = document.querySelector('.newsletter-btn');
 const modal = document.getElementById('newsletterModal');
@@ -166,12 +210,15 @@ closeModalBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
+<<<<<<< Updated upstream
 // Cerrar haciendo clic fuera del modal
 window.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
   }
 });
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -182,6 +229,7 @@ window.addEventListener('click', (e) => {
 
 
 
+<<<<<<< Updated upstream
 // --- MODO OSCURO ---
 document.addEventListener("DOMContentLoaded", () => {
   const btnTema = document.querySelector(".light-btn");
@@ -208,11 +256,41 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("tema", "light");
     }
   });
+=======
+
+// CATEGORIAS DESPLAZADAS
+
+document.addEventListener("DOMContentLoaded", () => {
+  const categorias = document.querySelectorAll(".category");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          observer.unobserve(entry.target); 
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  categorias.forEach(cat => observer.observe(cat));
+>>>>>>> Stashed changes
 });
 
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // --- MARQUESINA (uso responsive) ---
 document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll('.marquesina-track img');
@@ -257,6 +335,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // --- FORMULARIO ---
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formSuscripcion");
@@ -338,6 +431,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 // TICKETS
 
 document.addEventListener("DOMContentLoaded", () => {

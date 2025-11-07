@@ -2045,3 +2045,81 @@ body {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+/* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
+/* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
+.modal-info {
+  /* Oculto por defecto */
+  display: none;      
+  position: fixed;
+  inset: 0;                  
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.35);
+
+  /* Centrado total del contenido */
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Contenedor interno */
+.modal-content.info-modal {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px; 
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-height: 85vh;           
+  overflow-y: auto;
+}
+
+/* Botón cerrar */
+.close-info {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--gris-oscuro);
+}
+.close-info:hover { color: var(--negro); }
+
+/* Cabecera con fecha y tipo */
+.info-header {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  margin-bottom: 2px;
+}
+.info-date { font-size: 1.8rem; font-weight: 700; color: var(--negro); }
+
+.info-kind { display: none; }
+
+.info-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--negro);
+  margin-top: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
