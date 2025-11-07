@@ -20,7 +20,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const porcentaje = document.getElementById("porcentaje");
   const cargaDiv = document.getElementById("carga");
+
+  // Si no existen los elementos, salir
   if (!porcentaje || !cargaDiv) return;
+
+  // Revisar si ya se mostró la pantalla de carga en esta sesión
+  if (sessionStorage.getItem("cargaMostrada")) {
+    cargaDiv.style.top = "-100%"; // Ocultar inmediatamente
+    return;
+  }
 
   let contador = 0;
 
@@ -28,14 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contador <= 100) {
       porcentaje.textContent = contador + "%";
       contador++;
-      setTimeout(carga, 40); 
+      setTimeout(carga, 40); // Llamar de nuevo después de 40ms
     } else {
+      // Animar salida de la pantalla de carga
+      cargaDiv.style.transition = "top 0.5s ease";
       cargaDiv.style.top = "-100%";
+
+      // Guardar en sessionStorage que la carga ya se mostró
+      sessionStorage.setItem("cargaMostrada", "true");
     }
   }
 
-  carga();
+  carga(); // Iniciar contador
 });
+
 
 
 
