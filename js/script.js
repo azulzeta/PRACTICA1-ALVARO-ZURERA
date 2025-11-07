@@ -151,6 +151,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Selecciona el botón de la página que abre el modal (no se modifica su clase)
+const openModalBtn = document.querySelector('.newsletter-btn');
+const modal = document.getElementById('newsletterModal');
+const closeModalBtn = document.querySelector('.modal .close');
+
+// Abrir modal
+openModalBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+// Cerrar modal
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Cerrar haciendo clic fuera del modal
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+
+
+
+
+
 
 
 

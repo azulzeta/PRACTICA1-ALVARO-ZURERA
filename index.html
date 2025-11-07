@@ -288,41 +288,31 @@
             </div>
         </footer>
 
-        <!-- =========================
-             MODAL HTML (insertado dentro del body)
-             ========================= -->
-        <div id="newsletterModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-          <div class="modal__panel" role="document">
-            <button class="modal__close" id="closeModalBtn" aria-label="Cerrar ventana"><i class="fas fa-times"></i></button>
 
-            <h1 id="modalTitle" class="modal__title">Suscríbete<br><span>a nuestra Newsletter</span></h1>
+        <div id="newsletterModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
 
-            <form id="newsletterForm" novalidate>
-              <div>
-                <label for="nombreNews" class="sr-only">Nombre</label>
-                <input id="nombreNews" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
-                <div id="errorNombre" class="error-msg" aria-live="polite"></div>
-              </div>
-
-              <div>
-                <label for="emailNews" class="sr-only">E-mail</label>
-                <input id="emailNews" name="email" type="email" placeholder="E-mail" autocomplete="email" required>
-                <div id="errorEmail" class="error-msg" aria-live="polite"></div>
-              </div>
-
-              <label class="modal__check">
-                <input id="aceptarTerminos" type="checkbox" required>
-                <div style="font-size:14px;">
-                  Al registrarte o utilizar nuestros servicios, confirmas que has leído, comprendido y aceptas nuestra
-                  <a href="#" target="_blank" rel="noopener">Política de Privacidad</a> y nuestros
-                  <a href="#" target="_blank" rel="noopener">Términos y Condiciones</a>.
+                <div class="modal-title">
+                <h2 class="left">Suscríbete</h2>
+                <h2 class="right">a nuestra <span>Newsletter</span></h2>
                 </div>
-              </label>
-              <div id="errorCheck" class="error-msg" aria-live="polite"></div>
 
-              <button class="btn-aceptar" type="submit" id="aceptarBtn">ACEPTAR</button>
-            </form>
-          </div>
+                <form class="newsletter-form">
+                <input type="text" placeholder="Tu nombre" required />
+                <input type="email" placeholder="E-mail" required />
+
+                <label class="checkbox">
+                    <input type="checkbox" required />
+                    <span>
+                    Al registrarte o utilizar nuestros servicios, confirmas que has leído, comprendido y aceptas nuestra
+                    <b>Política de Privacidad</b> y nuestros <b>Términos y Condiciones</b>.
+                    </span>
+                </label>
+
+                <button type="submit" class="modal-accept-btn">ACEPTAR</button>
+                </form>
+            </div>
         </div>
         
 

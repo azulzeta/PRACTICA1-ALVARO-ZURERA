@@ -1,0 +1,241 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45); /* 🔹 Fondo oscuro semitransparente */
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  background-color: rgba(191, 184, 184, 0.90); /* 🎨 más transparente */
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  justify-content: left;
+}
+
+.modal-content h2 span {
+  font-weight: 900;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px; /* 🔹 más fino */
+  text-underline-offset: 6px;       /* 🔹 más separado del texto */
+  text-decoration-color: #000;      /* puedes cambiar el color si quieres */
+}
+
+.modal-content strong {
+  font-weight: 800;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--negro);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- MOBILE & SMALL TABLETS --- */
+@media (max-width: 700px) {
+  .tickets-title {
+    font-size: 2.2rem;
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  /* ---- HEADER (DAY TICKETS, ABONOS, TOTAL) ---- */
+  .section-header,
+  .total-box {
+    flex-direction: row; /* ✅ Flecha y texto en la misma línea */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 18px 6vw;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .toggle-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    margin-left: 8px; /* separa ligeramente de h2 */
+  }
+
+  /* ---- OPCIONES ---- */
+  .ticket-options {
+    padding: 10px 5vw;
+  }
+
+  .ticket-box {
+    width: 100%;
+    padding: 16px 14px;
+    border-radius: 10px;
+  }
+
+  /* ---- FILA PRINCIPAL ---- */
+  .ticket-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* ---- INFO LÍNEA (fecha, tipo, precio, etc.) ---- */
+  .ticket-info-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .ticket-date,
+  .ticket-kind,
+  .ticket-from,
+  .ticket-price {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .ticket-date,
+  .ticket-kind {
+    margin-right: 6px;
+  }
+  .ticket-from {
+    margin-left: auto;
+    margin-right: 4px;
+  }
+
+  /* ---- CONTROLES + INFO ---- */
+  .ticket-controls-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* ✅ INFO alineado a la izquierda */
+  .info-btn {
+    order: 1;
+    background: transparent;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+  .info-btn:hover {
+    background: #333;
+    color: white;
+  }
+
+  .ticket-controls {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ticket-controls button {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+    background: var(--gris-oscuro);
+  }
+
+  .quantity {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  /* ---- TOTAL ---- */
+  .total-box {
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 18px 6vw;
+  }
+
+  /* ---- BOTÓN FINAL ---- */
+  .next-btn {
+    width: 90%;
+    font-size: 1rem;
+    padding: 14px;
+    margin: 30px auto 60px;
+    display: block;
+  }
+}
