@@ -43,6 +43,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --- MENÚ DESPLEGABLE VERSIÓN MÓVIL CON EFECTO DESENFOCADO ---
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
@@ -107,6 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --- COUNTDOWN ---
 document.addEventListener("DOMContentLoaded", () => {
   const countdownSection = document.querySelector(".countdown");
@@ -151,6 +204,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Selecciona el botón de la página que abre el modal (no se modifica su clase)
 const openModalBtn = document.querySelector('.newsletter-btn');
 const modal = document.getElementById('newsletterModal');
@@ -172,6 +246,24 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -209,6 +301,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -252,6 +374,35 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('load', setupResponsive);
   window.addEventListener('resize', setupResponsive);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -338,6 +489,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // TICKETS
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -385,3 +565,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+
+
+
+// Selecciones
+const infoButtons = document.querySelectorAll('.info-btn');
+const infoModal = document.getElementById('infoModal'); // tu id
+const closeInfo = document.querySelector('.close-info');
+
+const infoDate = document.getElementById('infoDate');
+const infoKind = document.getElementById('infoKind');
+const infoDescription = document.getElementById('infoDescription');
+
+const ticketDescriptions = {
+  '03 O.26': 'Acceso al festival el 3 de octubre de 2026. Incluye todos los escenarios principales.',
+  '04 O.26': 'Acceso al festival el 4 de octubre de 2026. Incluye todos los escenarios principales.',
+  '05 O.26': 'Acceso al festival el 5 de octubre de 2026. Incluye todos los escenarios principales.',
+  'ABONO NORMAL': 'Acceso general a todos los días del festival.',
+  'ABONO COMPLETO': 'Entrada general con acceso a todas las zonas durante los tres días.',
+  'ABONO VIP': 'Acceso VIP a todas las zonas premium, con beneficios exclusivos.'
+};
+
+// Abrir modal (IMPORTANTE: usar 'flex' para que el centrado funcione)
+infoButtons.forEach(button => {
+  button.addEventListener('click', e => {
+    const row = e.target.closest('.ticket-row');
+    let date = row.querySelector('.ticket-date').textContent.trim();
+
+// Normaliza el formato: si empieza con un solo dígito, añade 0
+if (/^\d O\.26$/.test(date)) {
+  date = '0' + date;
+}
+    const kind = row.querySelector('.ticket-kind').textContent.trim();
+
+    infoDate.textContent = date;
+    infoKind.textContent = kind;
+    infoDescription.textContent = ticketDescriptions[date] || ticketDescriptions[kind];
+
+    // Abrir con flex para activar el centrado
+    infoModal.style.display = 'flex';
+  });
+});
+
+// Cerrar modal (por botón)
+closeInfo.addEventListener('click', () => {
+  infoModal.style.display = 'none';
+});
+
+// Cerrar modal haciendo click fuera del contenido
+window.addEventListener('click', e => {
+  if (e.target === infoModal) {
+    infoModal.style.display = 'none';
+  }
+});

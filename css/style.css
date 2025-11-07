@@ -216,7 +216,7 @@ html, body {
 
 /* Caja principal */
 .modal-content {
-  background-color: rgba(238, 238, 238, 0.8); /* 🔹 Gris claro translúcido */
+  background-color: rgba(238, 238, 238, 0.9); /* 🔹 Gris claro translúcido */
   padding: 40px;
   border-radius: 20px;
   width: 90%;
@@ -262,10 +262,11 @@ html, body {
 
 .modal-title .right span {
   font-weight: 900;
+  color: var(--rosa);
   text-decoration-line: underline;
   text-decoration-thickness: 1.5px; /* 🔹 más fino */
-  text-underline-offset: 6px;       /* 🔹 más separado del texto */
-  text-decoration-color: #000;      /* puedes cambiar el color si quieres */
+  text-underline-offset: 6px;  
+  text-decoration-color: #000;
 }
 
 /* Formulario */
@@ -1712,6 +1713,11 @@ body {
   gap: 50px;
 }
 
+.header-left i {
+  font-size: 32px; /* Ajusta tamaño */
+  margin-right: 8px; /* Separación del texto */
+}
+
 .day-header {
   background-color: var(--rosa);
 }
@@ -1851,6 +1857,11 @@ body {
   gap: 50px;
 }
 
+.total-label i {
+  font-size: 32px; /* Ajusta tamaño */
+  margin-right: 8px; /* Separación del texto */
+}
+
 .next-btn {
   display: inline-flex;              /* <== necesario para que gap funcione */
   align-items: center;               /* centra verticalmente el texto y el ícono */
@@ -1918,6 +1929,16 @@ body {
     gap: 25px;
   }
 
+  .header-left i {
+  font-size: 25px; /* Ajusta tamaño */
+  margin-right: 8px; /* Separación del texto */
+}
+
+.total-label i {
+  font-size: 25px; /* Ajusta tamaño */
+  margin-right: 8px; /* Separación del texto */
+}
+
   .ticket-options {
     padding: 16px 5vw;
   }
@@ -1962,6 +1983,20 @@ body {
 
 /* --- RESPONSIVE TICKETS (700px) --- */
 @media (max-width: 700px) {
+
+  .header-left i {
+  font-size: 23px; /* Ajusta tamaño */
+  margin-right: 5px; /* Separación del texto */
+}
+
+.total-label {
+  gap:25px; 
+}
+
+.total-label i {
+  font-size: 23px; /* Ajusta tamaño */
+  margin-right: 5px; /* Separación del texto */
+}
 
   .ticket-row {
     display: grid;
@@ -2043,5 +2078,62 @@ body {
   }
 }
 
+/* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
+/* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
+.modal-info {
+  /* Oculto por defecto */
+  display: none;      
+  position: fixed;
+  inset: 0;                  
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.35);
 
+  /* Centrado total del contenido */
+  align-items: center;
+  justify-content: center;
 
+}
+
+/* Contenedor interno */
+.modal-content.info-modal {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px; 
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-height: 85vh;           
+  overflow-y: auto;
+}
+
+/* Botón cerrar */
+.close-info {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--gris-oscuro);
+}
+.close-info:hover { color: var(--negro); }
+
+/* Cabecera con fecha y tipo */
+.info-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.info-date { font-size: 1.8rem; font-weight: 700; color: var(--negro); }
+
+.info-kind { font-size: 1rem; color: var(--gris-oscuro); }
+
+.info-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--negro);
+  margin-top: 8px;
+}

@@ -17,7 +17,7 @@
         <header>
             <nav class="barra">
                 <div class="nav-left">
-                    <a href="#" class="logo">
+                    <a href="index.html" class="logo">
                         <img src="img/FABICON2.png" alt="Logo del Festival" />
                     </a>
     
@@ -67,7 +67,7 @@
             <section class="tickets-section">
                 <div class="section-header day-header">
                 <div class="header-left">
-                    <i class="fas fa-ticket-alt"></i>
+                    <i class="fas fa-ticket"></i>
                     <h2>DAY TICKETS</h2>
                 </div>
                 <i class="fas fa-chevron-down toggle-arrow"></i>
@@ -124,56 +124,56 @@
             <!-- ABONOS -->
             <section class="tickets-section">
                 <div class="section-header abono-header">
-                <div class="header-left">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h2>ABONOS</h2>
-                </div>
-                <i class="fas fa-chevron-down toggle-arrow"></i>
+                    <div class="header-left">
+                        <i class="fas fa-ticket"></i>
+                        <h2>ABONOS</h2>
+                    </div>
+                    <i class="fas fa-chevron-down toggle-arrow"></i>
                 </div>
 
                 <div class="ticket-options">
-                <div class="ticket-box">
-                    <div class="ticket-row" data-price="280">
-                    <button class="info-btn">+ INFO</button>
-                    <span class="ticket-date">ABONO NORMAL</span>
-                    <span class="ticket-kind">GENERAL</span>
-                    <span class="ticket-from">DESDE</span>
-                    <span class="ticket-price">280,00€ + Tasas</span>
-                    <div class="ticket-controls">
-                        <button class="minus">−</button>
-                        <span class="quantity">0</span>
-                        <button class="plus">+</button>
-                    </div>
+                    <div class="ticket-box">
+                        <div class="ticket-row" data-price="280">
+                        <button class="info-btn">+ INFO</button>
+                        <span class="ticket-date">ABONO NORMAL</span>
+                        <span class="ticket-kind">GENERAL</span>
+                        <span class="ticket-from">DESDE</span>
+                        <span class="ticket-price">280,00€ + Tasas</span>
+                        <div class="ticket-controls">
+                            <button class="minus">−</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="ticket-box">
                     <div class="ticket-row" data-price="310">
-                    <button class="info-btn">+ INFO</button>
-                    <span class="ticket-date">ABONO COMPLETO</span>
-                    <span class="ticket-kind">GENERAL</span>
-                    <span class="ticket-from">DESDE</span>
-                    <span class="ticket-price">310,00€ + Tasas</span>
-                    <div class="ticket-controls">
-                        <button class="minus">−</button>
-                        <span class="quantity">0</span>
-                        <button class="plus">+</button>
-                    </div>
+                        <button class="info-btn">+ INFO</button>
+                        <span class="ticket-date">ABONO COMPLETO</span>
+                        <span class="ticket-kind">GENERAL</span>
+                        <span class="ticket-from">DESDE</span>
+                        <span class="ticket-price">310,00€ + Tasas</span>
+                        <div class="ticket-controls">
+                            <button class="minus">−</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="ticket-box">
                     <div class="ticket-row" data-price="375">
-                    <button class="info-btn">+ INFO</button>
-                    <span class="ticket-date">ABONO VIP</span>
-                    <span class="ticket-kind">VIP</span>
-                    <span class="ticket-from">DESDE</span>
-                    <span class="ticket-price">375,00€ + Tasas</span>
-                    <div class="ticket-controls">
-                        <button class="minus">−</button>
-                        <span class="quantity">0</span>
-                        <button class="plus">+</button>
-                    </div>
+                        <button class="info-btn">+ INFO</button>
+                        <span class="ticket-date">ABONO VIP</span>
+                        <span class="ticket-kind">VIP</span>
+                        <span class="ticket-from">DESDE</span>
+                        <span class="ticket-price">375,00€ + Tasas</span>
+                        <div class="ticket-controls">
+                            <button class="minus">−</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -182,7 +182,7 @@
             <!-- TOTAL -->
             <div class="total-box">
                 <div class="total-label">
-                <i class="fas fa-ticket-alt"></i>
+                <i class="fas fa-ticket"></i>
                 <h2>TOTAL</h2>
                 </div>
                 <div id="total">0,00€</div>
@@ -246,6 +246,21 @@
                 <button type="submit" class="modal-accept-btn">ACEPTAR</button>
                 </form>
             </div>
+        </div>
+
+        <!-- MODAL DE INFORMACIÓN DEL TICKET -->
+        <!-- MODAL DE INFORMACIÓN DEL TICKET -->
+        <div id="infoModal" class="modal-info">
+        <div class="modal-content info-modal">
+            <span class="close-info">&times;</span>
+
+            <div class="info-header">
+            <h2 id="infoDate" class="info-date"></h2>
+            <span id="infoKind" class="info-kind"></span>
+            </div>
+
+            <p id="infoDescription" class="info-description"></p>
+        </div>
         </div>
 
         <script src="js/script.js"></script>
