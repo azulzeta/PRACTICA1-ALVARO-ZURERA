@@ -568,62 +568,67 @@ body {
 }
 
 .category {
-  width: 100vw; /* ocupa TODO el ancho de la ventana */
-  height: 15vh; /* alto grande y consistente */
+  width: 100vw;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem; /* texto enorme */
+  font-size: 5rem;
   font-weight: 600;
   color: var(--blanco);
   text-transform: uppercase;
-  opacity: 0; /* invisible hasta que aparece */
+  opacity: 0;
   transform: translateX(0);
-  animation-duration: 2s; /* lenta y elegante */
+  animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   margin: 0;
-  border: none;
-  padding: 0 60px; /* espacio lateral para respirar */
+  padding: 0 60px;
 }
 
-.category {
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  cursor: pointer;
-
+/* Animaciones desde los lados */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-
-.category::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255,255,255,0.2);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.category:hover::before {
-  transform: translateX(0);
-}
-
-
-/* Colores planos (sin degradados) */
 .category.green {
   background-color: var(--verde);
-  animation-name: slideInRight;
   justify-content: flex-start;
   text-align: left;
+  text-decoration: none;
+  animation-name: slideInRight;
+  animation-play-state: paused;
 }
 
 .category.pink {
   background-color: var(--rosa);
-  animation-name: slideInLeft;
   justify-content: flex-end;
   text-align: right;
+  text-decoration: none;
+  animation-name: slideInLeft;
+  animation-play-state: paused;
 }
+
+
+
 
 .logo-movimiento { 
   position: relative;
@@ -1568,20 +1573,38 @@ body {
 /* SUSCRIPCION */
 
 /* ==== FORMULARIO SUSCRIPCIÓN ==== */
-    .suscripcion-container {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 40px;
-      background-color: var(--card-bg, #f9f9f9);
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+.suscripcion-container {
+  position: relative; /* necesario para posicionar el icono dentro */
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 40px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.reset-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--gris-oscuro);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.reset-icon:hover {
+  color: var(--negro);
+  transform: rotate(150deg); /* efecto giratorio al pasar el mouse */
+}
 
     .suscripcion-container h1 {
       font-size: 2.5rem;
       font-weight: 800;
-      margin-bottom: 25px;
+      margin-bottom: 40px;
       color: var(--rosa);
     }
 
@@ -1633,9 +1656,16 @@ body {
       color: var(--blanco);
     }
 
+    @media (max-width: 900px) {
+      .suscripcion-container {
+        margin: 100px 30px;
+        padding: 30px;
+      }
+    }
+
     @media (max-width: 700px) {
       .suscripcion-container {
-        margin: 40px 20px;
+        margin: 120px 20px;
         padding: 30px;
       }
     }

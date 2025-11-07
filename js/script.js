@@ -327,8 +327,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// CATEGORIAS DESPLAZADAS
 
+document.addEventListener("DOMContentLoaded", () => {
+  const categorias = document.querySelectorAll(".category");
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          observer.unobserve(entry.target); 
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  categorias.forEach(cat => observer.observe(cat));
+});
 
 
 
@@ -426,8 +443,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formSuscripcion");
   if (!form) return; // si no existe el formulario, no ejecutar nada
 
+  // Función para limpiar bordes y errores
+  function limpiarEstilos() {
+    // Limpiar todos los spans de error
+    document.querySelectorAll(".error").forEach(e => e.textContent = "");
+    // Limpiar estilos de borde de los inputs
+    const inputs = form.querySelectorAll("input");
+    inputs.forEach(input => {
+      input.style.borderColor = "#ccc"; // color por defecto
+    });
+  }
+
+  // Botón de reinicio (reset)
+  const resetBtn = document.getElementById("resetFormulario");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      form.reset();      // limpiar todos los inputs
+      limpiarEstilos();  // limpiar errores y bordes
+    });
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault(); // Evita envío automático
+    limpiarEstilos();       // Limpiar errores antes de validar
+
     let valido = true;
 
     // Obtener campos
@@ -439,48 +478,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const contrasena = document.getElementById("contrasena").value.trim();
     const repetirContrasena = document.getElementById("repetirContrasena").value.trim();
 
-    // Limpiar errores
-    document.querySelectorAll(".error").forEach(e => e.textContent = "");
-
-    // Validar nombre
+    // Validaciones
     if (nombre === "") {
       document.getElementById("errorNombre").textContent = "Ingrese su nombre.";
+      document.getElementById("nombre").style.borderColor = "red";
       valido = false;
     }
 
-    // Validar apellido
     if (apellido === "") {
       document.getElementById("errorApellido").textContent = "Ingrese su apellido.";
+      document.getElementById("apellido").style.borderColor = "red";
       valido = false;
     }
 
-    // Validar teléfono (solo números)
-    if (!/^[0-9]+$/.test(telefono)) {
+    if (!/^[0-9]{7,}$/.test(telefono)) { // mínimo 7 dígitos
       document.getElementById("errorTelefono").textContent = "Ingrese un número de teléfono válido.";
+      document.getElementById("telefono").style.borderColor = "red";
       valido = false;
     }
 
-    // Validar email
     const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailRegex.test(email)) {
       document.getElementById("errorEmail").textContent = "Ingrese un email válido.";
+      document.getElementById("email").style.borderColor = "red";
       valido = false;
     }
 
-    // Confirmar email
     if (email !== confirmarEmail) {
       document.getElementById("errorConfirmarEmail").textContent = "Los correos no coinciden.";
+      document.getElementById("confirmarEmail").style.borderColor = "red";
       valido = false;
     }
 
-    // Validar contraseña
     if (contrasena.length < 8) {
       document.getElementById("errorContrasena").textContent = "Debe tener al menos 8 caracteres.";
+      document.getElementById("contrasena").style.borderColor = "red";
       valido = false;
     }
 
     if (contrasena !== repetirContrasena) {
       document.getElementById("errorRepetirContrasena").textContent = "Las contraseñas no coinciden.";
+      document.getElementById("repetirContrasena").style.borderColor = "red";
       valido = false;
     }
 
@@ -488,9 +526,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (valido) {
       alert("¡Formulario enviado con éxito!");
       form.reset();
+      limpiarEstilos();
     }
   });
 });
+
 
 
 
