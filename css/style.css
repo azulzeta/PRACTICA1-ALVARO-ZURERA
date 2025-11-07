@@ -1817,7 +1817,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 50px;
+  margin-left: 30px;
   justify-content: flex-end;
 }
 
@@ -1925,6 +1925,8 @@ body {
     padding: 16px 5vw;
   }
 
+
+
   .header-left {
     gap: 25px;
   }
@@ -1958,16 +1960,24 @@ body {
   }
 
   .ticket-date,
-  .ticket-kind,
-  .ticket-from,
   .ticket-price {
     font-size: 0.95rem;
   }
 
+  .ticket-kind,
+  .ticket-from {
+    font-size: 0.85;
+  }
+
+  .ticket-controls {
+    margin-left: 15px;
+    gap: 5px;
+  }
+
   .ticket-controls button {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
   }
 
   .quantity {
@@ -2011,23 +2021,20 @@ body {
   }
 
   /* ---- BLOQUE SUPERIOR: FECHA + TIPO ---- */
-  .ticket-date,
-  .ticket-kind {
+  
+
+  .ticket-date {
     grid-area: info;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: left;
+    font-weight: 700;
     font-size: 1.3rem;
     text-transform: uppercase;
   }
 
-  .ticket-date {
-    font-weight: 700;
-  }
-
   .ticket-kind {
-    font-weight: 400;
-    color: #333;
+    display: none;
   }
 
   /* ---- BOTÓN +INFO ---- */
@@ -2035,6 +2042,7 @@ body {
     grid-area: infoBtn;
     justify-self: end;
     border: 1px solid #000;
+    margin: 0px;
     border-radius: 8px;
     padding: 6px 14px;
     font-weight: 700;
@@ -2064,11 +2072,11 @@ body {
   }
 
   .ticket-controls button {
-    width: 36px;
-    height: 36px;
-    font-size: 22px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
     border-radius: 50%;
-    background: #000;
+    background: var(--gris-oscuro);
     color: #fff;
   }
 
@@ -2077,6 +2085,10 @@ body {
     font-weight: 700;
   }
 }
+
+
+
+
 
 /* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
 /* ==== MODAL DE INFORMACIÓN DEL TICKET ==== */
@@ -2129,7 +2141,7 @@ body {
 }
 .info-date { font-size: 1.8rem; font-weight: 700; color: var(--negro); }
 
-.info-kind { font-size: 1rem; color: var(--gris-oscuro); }
+.info-kind { display: none; }
 
 .info-description {
   font-size: 1rem;
