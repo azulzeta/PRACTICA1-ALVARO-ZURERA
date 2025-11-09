@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // --- MENÚ DESPLEGABLE VERSIÓN MÓVIL CON EFECTO DESENFOCADO ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -139,6 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // --- COUNTDOWN ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -194,6 +206,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // Selecciona el botón de la página que abre el modal (no se modifica su clase)
 const openModalBtn = document.querySelector('.newsletter-btn');
@@ -230,6 +248,8 @@ window.addEventListener('click', (e) => {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // --- MODO OSCURO ---
 document.addEventListener("DOMContentLoaded", () => {
   const btnTema = document.querySelector(".light-btn");
@@ -257,6 +277,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 =======
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
 
 // CATEGORIAS DESPLAZADAS
 
@@ -290,6 +316,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // --- MARQUESINA (uso responsive) ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -349,6 +381,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // --- FORMULARIO ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -443,6 +481,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // TICKETS
 
